@@ -1,0 +1,346 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Colorlib Templates">
+    <meta name="author" content="Colorlib">
+    <meta name="keywords" content="Colorlib Templates">
+
+    <!-- Title Page-->
+    <title>Au Register Forms by Colorlib</title>
+
+    <!-- Icons font CSS-->
+    <link href="{% static 'mdi-font/css/material-design-iconic-font.min.css' %}" rel="stylesheet" media="all">
+    <link href="{% static 'font-awesome-4.7/css/font-awesome.min.css' %}" rel="stylesheet" media="all">
+    <link href="{% static 'fontawesome-free-5.15.2-web/css/all.css' %}" rel="stylesheet" media="all">
+    <!-- Font special for pages-->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i" rel="stylesheet">
+
+    <!-- Vendor CSS-->
+    <link href="{% static 'select2/select2.min.css' %}" rel="stylesheet" media="all">
+    <link href="{% static 'vendor/datepicker/daterangepicker.css' %}" rel="stylesheet" media="all">
+
+    <!-- Main CSS-->
+    <link href="{% static 'css/addproperty.css' %}" rel="stylesheet" media="all">
+</head>
+
+<body>
+    <div class="page-wrapper bg-gra-03 p-t-45 p-b-50">
+        <div class="wrapper wrapper--w790">
+            <div class="card card-5">
+                <div class="card-heading">
+                    <h2 class="title">add property</h2>
+                </div>
+                <div class="card-body">
+                    <form method="POST" action="addproperty" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        <div class="form-row m-b-55">
+                            <div class="name">Property</div>
+                            <div class="value">
+                                <div class="row row-space">
+                                    <div class="col-2">
+                                        <div class="input-group-desc">
+                                            <input class="input--style-5" type="text" name="p_name">
+                                            <label class="label--desc">Property name</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-2">
+                                        <div class="input-group-desc">
+                                            <div class="rs-select2 js-select-simple select--no-search">
+                                                <select name="p_city">
+                                                    <option disabled="disabled" selected="selected">Choose option</option>
+                                                    <option>Rajkot</option>
+                                                    <option>Surat</option>
+                                                    <option>Vadodara</option>
+                                                    <option>Ahamdabad</option>
+                                                </select>
+                                                <div class="select-dropdown"></div>
+                                            </div>
+                                            <label class="label--desc">City</label>
+                                        </div>
+                                    </div>
+                                </div><br><br>
+                                <div class="row row-space">
+                                    <div class="col-2">
+                                        <div class="input-group-desc">
+                                            <div class="rs-select2 js-select-simple select--no-search">
+                                                <select name="p_state">
+                                                    <option disabled="disabled" selected="selected">Choose option</option>
+                                                    <option>Gujarat</option>
+                                                    <option>Rajasthan</option>
+                                                    <option>Panjab</option>
+                                                    <option>Hariyana</option>
+                                                </select>
+                                                <div class="select-dropdown"></div>
+                                            </div>
+                                            <label class="label--desc">State</label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="name">Email</div>
+                            <div class="value">
+                                <div class="input-group">
+                                    <input class="input--style-5" type="email" name="email">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-row m-b-55">
+                            <div class="name">Phone</div>
+                            <div class="value">
+                                <div class="row row-refine">
+                                    <div class="col-3">
+                                        <div class="input-group-desc">
+                                            <input class="input--style-5" type="text" name="area_code">
+                                            <label class="label--desc">Area Code</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-9">
+                                        <div class="input-group-desc">
+                                            <input class="input--style-5" type="text" name="phone">
+                                            <label class="label--desc">Phone Number</label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="name">Property Type</div>
+                            <div class="value">
+                                <div class="input-group">
+                                    <div class="rs-select2 js-select-simple select--no-search">
+                                        <select name="p_type">
+                                            <option disabled="disabled" selected="selected">Choose option</option>
+                                            <option>PG</option>
+                                            <option>Villas</option>
+                                            <option>Hotels</option>
+                                            <option>Apartment</option>
+                                            <option>Cottage</option>
+                                            <option>Glamping</option>
+                                            <option>Motels</option>
+                                            <option>Guest House</option>
+                                            <option>Farm House</option>
+                                            <option>Samaj</option>
+                                        </select>
+                                        <div class="select-dropdown"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="name">Address</div>
+                            <div class="value">
+                                <div class="input-group">
+                                    <input class="input--style-5" type="text" name="p_address">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-row p-t-20">
+                            <label class="label label--block">Are you an existing customer?</label>
+                            <div class="p-t-15">
+                                <label class="radio-container m-r-55">Yes
+                                    <input type="radio" checked="checked" name="execting_cus">
+                                    <span class="checkmark"></span>
+                                </label>
+                                <label class="radio-container">No
+                                    <input type="radio" name="execting_cus">
+                                    <span class="checkmark"></span>
+                                </label>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="name">Rent&nbsp;<br>/Deposite</div>
+                            <div class="value">
+                                <div class="row row-refine">
+                                    <div class="input-group">
+                                        <input class="input--style-5 number_property" type="number" name="p_rent" min="0" style="width: 70%;" placeholder="0.0">&nbsp;
+                                        <label for="amount_type"> &#8377;</label> &nbsp;
+                                    </div>
+                                    <div class="input-group-desc">
+                                            <div class="rs-select2 js-select-simple select--no-search" style="width: 100%;">
+                                                <select name="p_time_area">
+                                                    <option disabled="disabled" selected="selected">Choose option</option>
+                                                    <option>Hour</option>
+                                                    <option>Day</option>
+                                                    <option>Month</option>
+                                                    <option>Year</option>
+                                                </select>
+                                                <div class="select-dropdown"></div>
+                                            </div>
+                                            <label class="label--desc">select&nbsp;time&nbsp;area</label>
+                                        </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="value">
+                                <div class="row row-refine">
+                                    <div class="col-3">
+                                        <div class="input-group-desc">
+                                            <input class="input--style-5" type="number" name="p_rooms_available" placeholder="0" style="width:50%; padding-left: 5%; padding-right: 5%; text-align: center;">
+                                        </div>
+                                        <label class="label--desc">Rooms&nbsp;Available</label>
+                                    </div>
+                                    <div class="col-3">
+                                        <div class="input-group-desc">
+                                            <input class="input--style-5" type="number" name="p_floor_no" placeholder="0" style="width:50%; padding-left: 5%; padding-right: 5%; text-align: center;">
+                                        </div>
+                                        <label class="label--desc">Floor&nbsp;Number</label>
+                                    </div>
+                                    <div class="input-group-desc" style="width:10%">
+                                        <input class="input--style-5" type="number" name="p_sharing_member" placeholder="0" min="0" max="8" style="padding-left:5%; padding-right:5%;text-align: center;">
+                                        <label class="label--desc">Sharing<br>Member</label>
+                                    </div>&nbsp;&nbsp;&nbsp;&nbsp;
+                                    <div class="input-group-desc">
+                                        <div class="rs-select2 js-select-simple select--no-search">
+                                            <select name="tenants_preffered">
+                                                <option disabled="disabled" selected="selected">Choose option</option>
+                                                <option>Girls</option>
+                                                <option>Boys</option>
+                                                <option>All/Family</option>
+                                                <option>Couple</option>
+                                            </select>
+                                            <div class="select-dropdown"></div>
+                                        </div>
+                                        <label class="label--desc">Tenants&nbsp;preffred</label>
+                                    </div>
+                                </div>    
+                            </div>
+                        </div><br><br>
+                        <div class="form-row">
+                            <div class="name">Amenities</div>
+                             <div class="value">
+                                <div class="row row-space">
+                                    <div class="input-group">
+                                        <input type="checkbox" value="wifi" name="p_amenities"><label class="label--block" for="wifi">wifi</label>&nbsp;&nbsp;<i class="fa fa-wifi" style="font-size:20px;color:red"></i>&nbsp;&nbsp;
+                                    </div>
+                                    <div class="input-group">
+                                        <input type="checkbox" value="AC" name="p_amenities"><label class="label--block" for="ac">AC</label>&nbsp;&nbsp;<img src="{% static 'images/ac1.png' %}" alt="" style="width:20px; height: 20px;">&nbsp;&nbsp;
+                                    </div>
+                                    <div class="input-group">
+                                        <input type="checkbox" value="Gym" name="p_amenities"><label class="label--block" for="Gym">Gym</label>&nbsp;&nbsp;<i class="fas fa-dumbbell" style="color: red;"></i>&nbsp;&nbsp;
+                                    </div>
+                                    <div class="input-group">
+                                        <input type="checkbox" value="parking" name="p_amenities"><label class="label--block" for="parking">Parking</label>&nbsp;&nbsp;<i class="fas fa-parking" style="color: red;"></i>&nbsp;&nbsp;
+                                    </div>
+                                    <div class="input-group">
+                                        <input type="checkbox" value="Lift" name="p_amenities"><label class="label--block" for="Lift">Lift</label>&nbsp;&nbsp;<img src="{% static 'images/elevator.png' %}" alt="" style="width:20px; height: 20px;">&nbsp;&nbsp;
+                                    </div>
+                                    
+                                </div><br>
+                                <div class="row row-space">
+                                    <div class="input-group">
+                                        <input type="checkbox" value="4-wheeler_parking" name="p_amenities"><label class="label--block" for="4-wheeler_parking">4-wheeler<br>Parking</label>&nbsp;&nbsp;<i class="fas fa-car" style="color:red;font-size: 20px;"></i>&nbsp;&nbsp;
+                                    </div>
+                                    <div class="input-group">
+                                        <input type="checkbox" value="Laundry" name="p_amenities"><label class="label--block" for="Laundry">Laundry</label>&nbsp;&nbsp;<img src="{% static 'images/Laundry.png' %}" alt="" style="width:25px; height: 25px;">&nbsp;&nbsp;
+                                    </div>
+                                    <div class="input-group">
+                                        <input type="checkbox" value="Fridge" name="p_amenities"><label class="label--block" for="Fridge">Fridge</label>&nbsp;&nbsp;<img src="{% static 'images/Fridge.png' %}" alt="" style="width:20px; height: 20px;">&nbsp;&nbsp;
+                                    </div>
+                                    <div class="input-group">
+                                        <input type="checkbox" value="V_food" name="p_amenities"><label class="label--block" for="V_food">Vegiterian<br>Food</label>&nbsp;&nbsp;<i class="fas fa-pizza-slice" style="color:red;"></i>&nbsp;&nbsp;
+                                    </div>
+                                    <div class="input-group">
+                                        <input type="checkbox" value="NV_food" name="p_amenities"><label class="label--block" for="NV_food">Non-veg.<br>Food</label>&nbsp;&nbsp;<i class="fas fa-drumstick-bite" style="color: red;"></i>&nbsp;&nbsp;
+                                    </div>
+                                </div><br>
+                                <div class="row row-space">
+                                    <div class="input-group">
+                                        <input type="checkbox" value="Vastu_Complient" name="p_amenities"><label class="label--block" for="Vastu_Complient">Vastu Complient</label>&nbsp;&nbsp;<i class="fas fa-house-user" style="color: red;"></i>&nbsp;&nbsp;
+                                    </div>
+                                    <div class="input-group">
+                                        <input type="checkbox" value="Power_backup" name="p_amenities"><label class="label--block" for="Power_backup">Power Backup</label>&nbsp;&nbsp;<i class="fas fa-solar-panel" style="color: red;"></i>&nbsp;&nbsp;
+                                    </div>
+                                    <div class="input-group">
+                                        <input type="checkbox" value="Warden" name="p_amenities"><label class="label--block" for="Warden">Warden</label>&nbsp;&nbsp;<img src="{% static 'images/Warden.png' %}" alt="" style="width:20px; height: 20px;">&nbsp;&nbsp;
+                                    </div>
+                                    <div class="input-group">
+                                        <input type="checkbox" value="RO" name="p_amenities"><label class="label--block" for="RO">Water&nbsp;Cooler<br>RO</label>&nbsp;&nbsp;<img src="{% static 'images/RO.png' %}" alt="" style="width:20px; height: 20px;">&nbsp;&nbsp;
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="name">House&nbsp;Rules</div>
+                             <div class="value">
+                                <div class="row row-space">
+                                    <div class="input-group">
+                                        <input type="checkbox" value="Notice_period" name="p_house_rules"><label class="label--block" for="Notice_period">Notice Period<br>1 Month</label>&nbsp;&nbsp;<i class="fas fa-calendar-alt" style="color: red;"></i>&nbsp;&nbsp;
+                                    </div>
+                                    <div class="input-group">
+                                        <input type="checkbox" value="Gate_closing_time" name="p_house_rules"><label class="label--block" for="Gate_closing_time">Gate Closing<br>Time 10:00PM</label>&nbsp;&nbsp;<i class="far fa-clock" style="color: red;"></i>&nbsp;&nbsp;
+                                    </div>
+                                    <div class="input-group">
+                                        <input type="checkbox" value="Visitor_Entry" name="p_house_rules"><label class="label--block" for="Visitor_Entry">Visitor Entry</label>&nbsp;&nbsp;<i class="fas fa-user-alt" style="color: red;"></i>&nbsp;&nbsp;
+                                    </div>
+                                    <div class="input-group">
+                                        <input type="checkbox" value="Drinking" name="p_house_rules"><label class="label--block" for="Drinking">Drinking</label>&nbsp;&nbsp;<i class="fas fa-wine-glass-alt" style="color: red;"></i>&nbsp;&nbsp;
+                                    </div>
+                                </div><br>
+                                <div class="row row-space">
+                                    <div class="input-group">
+                                        <input type="checkbox" value="Smoking" name="p_house_rules"><label class="label--block" for="Smoking">Smoking</label>&nbsp;&nbsp;<i class="fas fa-smoking" style="color: red;"></i>&nbsp;&nbsp;
+                                    </div>
+                                    <div class="input-group">
+                                        <input type="checkbox" value="Loud_music" name="p_house_rules"><label class="label--block" for="Loud_music">Loud Music</label>&nbsp;&nbsp;<i class="fas fa-music" style="color: red;"></i>&nbsp;&nbsp;
+                                    </div>
+                                    <div class="input-group">
+                                        <input type="checkbox" value="Party" name="p_house_rules"><label class="label--block" for="Party">Party</label>&nbsp;&nbsp;<i class="fas fa-glass-cheers" style="color: red;"></i>&nbsp;&nbsp;
+                                    </div>
+                                </div>  
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="value">
+                                <div class="name">Upload<br>Property&nbsp;Images</div>
+                                <div class="row row-refine">
+                                    {{form}}
+                                    
+                                        <div class="row">
+                                                
+                                                <div class="col-sm-4">
+                                                    <div class="card">
+                                                        {% for x in img %}
+                                                        <img src="{{x.photo.url}}" alt="" class="card-img-top" height="200px">
+                                                        {% endfor %}
+                                                    </div>
+                                                </div>
+                                                
+                                        </div>
+                                            
+                                </div>
+                                <button class="btn btn--radius-2 btn--blue" style="margin-top:5%; width: 20%; padding:0;" type="submit">Upload</button>                                
+                            </div>
+                        </div>     
+            
+                        <div>
+                            <button class="btn btn--radius-2 btn--red" type="submit">ADD</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Jquery JS-->
+    <script src="{% static 'jquery/jquery.min.js' %}"></script>
+    <!-- Vendor JS-->
+    <script src="{% static 'select2/select2.min.js' %}"></script>
+    <script src="{% static 'vendor/datepicker/moment.min.js' %}"></script>
+    <script src="{% static 'datepicker/daterangepicker.js' %}"></script>
+
+    <!-- Main JS-->
+    <script src="{% static 'js/addproperty.js' %}"></script>
+
+</body>
+
+</html>
+<!-- end document-->
