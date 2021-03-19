@@ -39,7 +39,7 @@ def pgindex(request):
     # pro3.p_bhk="3 BHK"
     # pro3.p_img="Fortune.jpg"
 
-    prope=Property.objects.all()
+    # prope=Property.objects.all()
 
     # props1=[]
     # length=len(prope)
@@ -98,7 +98,7 @@ def pgindex(request):
     # props1=[pro1,pro2,pro3]
     props2=[pro4,pro5,pro6]
     props3=[pro7,pro8,pro9]
-    context={'user_id':user_id,'props1':prope, 'props2':props2, 'props3':props3}
+    context={'user_id':user_id,'props1':props2, 'props2':props2, 'props3':props3}
 
     return render(request, 'pgindex.html', context)
 

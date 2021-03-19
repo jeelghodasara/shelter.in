@@ -1,11 +1,11 @@
 from django.db import models
 from django.contrib.auth.models import User
-from current_user import get_current_user
+# from current_user import get_current_user
 
 # Create your models here.
     
 class Property(models.Model):
-    author=models.ForeignKey(User, default=get_current_user, on_delete=models.CASCADE)
+    # author=models.ForeignKey(User, default=get_current_user, on_delete=models.CASCADE)
     p_name = models.CharField(max_length=100)
     city=(
         ('Rajkot','Rajkot'),
