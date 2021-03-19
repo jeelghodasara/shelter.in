@@ -124,13 +124,11 @@ sign_in_btn.addEventListener("click", () => {
 
 
 
-function ac_fun(){
-  var u_sel=document.getElementById("u_selection");
-  const phone=document.getElementById("phoneno");
-  if(u_sel.value == "yes"){
-    phone.style.visibility="visible";
-  }
-  else{
-    phone.style.visibility="hidden";
-  }
+function ac_fun(id, elementValue){
+  document.getElementById(id).style.display=elementValue.value==1 ? 'block':'none';
 }
+
+// function showDiv(divId, element)
+// {
+//     document.getElementById(divId).style.display = element.value == 1 ? 'block' : 'none';
+// }

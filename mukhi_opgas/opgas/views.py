@@ -1,15 +1,20 @@
 from django.shortcuts import render,redirect
 from django.http import HttpResponse
 from .models import Property
-from .forms import ImageForm
+from .forms import Property_form
+from .forms import Property_form2
+from django.contrib.auth.decorators import login_required
 # Create your views here.
 
-
+@login_required
+def Base_pgindex(request):
+    return render(request, "pgindex.html")
 
 
 def pgindex(request):
 
-
+    current_user=request.user
+    user_id=current_user.id
     # pro1=Property()
     # pro1.p_name="Fortune Hotel"
     # pro1.p_city="Rajkot"
@@ -40,8 +45,6 @@ def pgindex(request):
     # length=len(prope)
     # for i in range(length):
     #     props1.append(i)
-
-
     
     
     pro4=Property()
@@ -95,49 +98,69 @@ def pgindex(request):
     # props1=[pro1,pro2,pro3]
     props2=[pro4,pro5,pro6]
     props3=[pro7,pro8,pro9]
+    context={'user_id':user_id,'props1':prope, 'props2':props2, 'props3':props3}
+
+    return render(request, 'pgindex.html', context)
 
 
-    return render(request, 'pgindex.html', {'props1':prope, 'props2':props2, 'props3':props3})
 
-
-def Account(request):
-         return render(request, "mysite/signup.html")
-
+@login_required
 def Add_property(request):
     # return render(request, 'mysite/addproperty.html')
-    
     if request.method == "POST":
-        p_name=request.POST['p_name']
-        p_city=request.POST.get['p_city']
-        p_state=request.POST.get['p_state']
-        email=request.POST['email']
-        area_code=request.POST['area_code']
-        phone=request.POST['phone']
-        p_type=request.POST.get['p_type']
-        p_address=request.POST['p_address']
-        execting_cus=request.POST['execting_cus']
-        p_price=request.POST['p_rent']
-        p_time_area=request.POST.get['p_time_area']
-        p_rooms_available=request.POST['p_rooms_available']
-        p_floor_no=request.POST['p_floor_no']
-        p_sharing_member=request.POST['p_sharing_member']
-        tenants_preffered=request.POST.get['tenants_preffered']
-        # p_amanities=request.POST.get['p_amenities']
-        # house_rules=request.POST.get['p_house_rules']
-
+        # fm=Property_form2(request.POST)
+        # if fm.is_valid():
+        data=Property()
+        p_city=request.POST.get('p_city')
+        p_name=request.POST.get('p_name')
+        p_state=request.POST.get('p_state')
+        email=request.POST.get('email')
+        area_code=request.POST.get('area_code')
+        phone=request.POST.get('phone')
+        p_type=request.POST.get('p_type')
+        p_address=request.POST.get('p_address')
+        # execting_cus=request.POST.get('execting_cus')
+        p_price=request.POST.get('p_rent')
+        p_time_area=request.POST.get('p_time_area')
+        p_rooms_available=request.POST.get('p_rooms_available')
+        p_floor_no=request.POST.get('p_floor_no')
+        p_sharing_member=request.POST.get('p_sharing_member')
+        tenants_preffered=request.POST.get('tenants_preffered')
+        p_amanities=request.POST.getlist('p_amenities')
+        house_rules=request.POST.getlist('p_house_rules')
+        images=request.FILES.getlist('Images')
+    
+        # photo = Property_form(request.POST, request.FILES)
+        data.p_name=p_name
+        data.p_city=p_city
+        data.p_state=p_state
+        data.email=email
+        data.area_code=area_code
+        data.phone=phone
+        data.p_type=p_type
+        data.p_address=p_address
+        # data.execting_cus=execting_cus
+        data.p_price=p_price
+        data.p_time_area=p_time_area
+        data.p_rooms_available=p_rooms_available
+        data.p_floor_no=p_floor_no
+        data.p_sharing_member=p_sharing_member
+        data.tenants_preffered=tenants_preffered
+        data.p_amanities=p_amanities
+        data.house_rules=house_rules
+        # current_user=request.user
+        # user_id=current_user.id
+        for img in images:
+            data.photo=img
+            data.save()
+    
+        # fm=Property_form2()
+        # image_form = Property_form()
+        # img = Property.objects.all()
+# {'image_form': image_form, 'fm': fm}
+    return render(request, 'mysite/addproperty.html')
+    
+        
         
 
-
-        # print(p_name,p_city)
-
-        form = ImageForm(request.POST, request.FILES)
-        if form.is_valid():
-            form.save()
-            return redirect('addproperty/')
-    else:
-        form = ImageForm()
-        img = Property.objects.all()
-    return render(request, 'mysite/addproperty.html', {'img': img, 'form': form,})
-    # return redirect("/")
-
-   
+        

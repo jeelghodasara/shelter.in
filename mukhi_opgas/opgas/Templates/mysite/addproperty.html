@@ -29,6 +29,7 @@
 </head>
 
 <body>
+{% block content %}
     <div class="page-wrapper bg-gra-03 p-t-45 p-b-50">
         <div class="wrapper wrapper--w790">
             <div class="card card-5">
@@ -45,7 +46,7 @@
                                     <div class="col-2">
                                         <div class="input-group-desc">
                                             <input class="input--style-5" type="text" name="p_name">
-                                            <label class="label--desc">Property name</label>
+                                            <label class="label--desc">Property name</label>                                            
                                         </div>
                                     </div>
                                     <div class="col-2">
@@ -302,9 +303,9 @@
                             <div class="value">
                                 <div class="name">Upload<br>Property&nbsp;Images</div>
                                 <div class="row row-refine">
-                                    {{form}}
-                                    
-                                        <div class="row">
+                                    {% comment %} {{image_form}} {% endcomment %}
+                                    <input type="file" name="Images" id="Image" multiple/>
+                                        {% comment %} <div class="row">
                                                 
                                                 <div class="col-sm-4">
                                                     <div class="card">
@@ -314,10 +315,10 @@
                                                     </div>
                                                 </div>
                                                 
-                                        </div>
+                                        </div> {% endcomment %}
                                             
                                 </div>
-                                <button class="btn btn--radius-2 btn--blue" style="margin-top:5%; width: 20%; padding:0;" type="submit">Upload</button>                                
+                                {% comment %} <button class="btn btn--radius-2 btn--blue" style="margin-top:5%; width: 20%; padding:0;" type="submit">Upload</button>                                 {% endcomment %}
                             </div>
                         </div>     
             
@@ -329,7 +330,7 @@
             </div>
         </div>
     </div>
-
+{% endblock %}
     <!-- Jquery JS-->
     <script src="{% static 'jquery/jquery.min.js' %}"></script>
     <!-- Vendor JS-->

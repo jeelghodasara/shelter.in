@@ -39,7 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'opgas',
+    'opgas','Account',
 ]
 
 MIDDLEWARE = [
@@ -50,6 +50,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    # 'current_user.CurrentUserMiddleware',
 ]
 
 ROOT_URLCONF = 'mukhi_opgas.urls'
@@ -79,7 +80,7 @@ WSGI_APPLICATION = 'mukhi_opgas.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'OPGAS',
+        'NAME': 'OPGAS_PYTHON',
         'USER': 'postgres',
         'PASSWORD': '1234',
         'HOST': 'localhost',

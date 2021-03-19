@@ -1,24 +1,47 @@
 from django.db import models
+from django.contrib.auth.models import User
+from current_user import get_current_user
 
 # Create your models here.
     
 class Property(models.Model):
+    author=models.ForeignKey(User, default=get_current_user, on_delete=models.CASCADE)
     p_name = models.CharField(max_length=100)
-    p_city = models.CharField(max_length=50)
-    p_state = models.CharField(max_length=50)
+    city=(
+        ('Rajkot','Rajkot'),
+        ('Ahmedabad','Ahmedabad'),
+        ('Vadodara','Vadodara'),
+    )
+    p_city = models.CharField(max_length=50, blank=True, null=True, choices=city)
+    state=(
+        ('Gujarat','Gujarat'),
+        ('Rajasthan','Rajasthan'),
+        ('Panjab','Panjab'),
+        ('Hariyana','Hariyana'),
+    )
+    p_state = models.CharField(max_length=50, choices=state)
     email = models.EmailField(max_length=254)
-    area_code = models.IntegerField()
+    area_code = models.IntegerField(default=91)
     phone = models.CharField(max_length=12)
-    p_type = models.CharField(max_length=50)
+    propertytype=(
+        ('PG','PG'),
+        ('Apartment','Apartment'),
+    )
+    p_type = models.CharField(max_length=50, choices=propertytype)
     p_address = models.CharField(max_length=1024)
-    execting_cus = models.BooleanField()
-    p_price = models.IntegerField()
+    execting_cus = models.BooleanField(default=False)
+    p_price = models.IntegerField(default=0)
     p_time_area = models.CharField(max_length=50)
-    p_rooms_available = models.IntegerField() 
-    p_floor_no = models.IntegerField()
-    p_sharing_member = models.IntegerField()
-    tenants_preffered = models.CharField(max_length=50)
-    photo = models.ImageField(upload_to='p_images')
+    p_rooms_available = models.IntegerField(default=1) 
+    p_floor_no = models.IntegerField(default=0)
+    p_sharing_member = models.IntegerField(default=1)
+    tenents=(
+        ('Boys','Boys'),
+        ('Girls','Girls'),
+        ('Family','Family')
+    )
+    tenants_preffered = models.CharField(max_length=50, choices=tenents)
+    photo = models.ImageField(null=True, upload_to='p_images')
     p_amanities = models.CharField(max_length=200)
     house_rules = models.CharField(max_length=200)
     date = models.DateField(auto_now_add=True)

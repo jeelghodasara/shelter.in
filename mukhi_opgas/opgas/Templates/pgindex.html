@@ -55,12 +55,12 @@
             <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
             <a class="nav-link" href="#">Serivces <span class="sr-only"></span></a>
             <a class="nav-link" href="#">Accommodation <span class="sr-only"></span></a>
-            <a class="nav-link" href="{% url 'Account' %}">Account <span class="sr-only"></span></a>
+            <a class="nav-link" href="{% url 'Register' %}">Account <span class="sr-only"></span></a>
             <a class="nav-link" href="#">Privacy <span class="sr-only"></span></a>
           </li>
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-display="static" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="{% static 'images/user.png' %}" alt="">
-                Jeel Patel
+                {{user.username}}
               </a>
               <div class="dropdown-menu dropdown-menu-lg-right" aria-labelledby="navbarDropdown">
                 <h6 class="dropdown-header">User settings</h6>
@@ -70,7 +70,7 @@
                 <a class="dropdown-item" href="#">Dashboard</a>
                 <a class="dropdown-item" href="#">Admin Dashboard</a>
                 <a class="dropdown-item" href="#">Settings</a><br>
-                <a class="dropdown-item" href="#" style="background-color: lightcyan;border:1px solid black;border-radius: 15px;text-align: center;">Logout</a>
+                <a class="dropdown-item" href="{% url 'logout' %}" style="background-color: lightcyan;border:1px solid black;border-radius: 15px;text-align: center;">Logout</a>
               </div>
 
     
@@ -554,7 +554,7 @@
       <script src="{% static 'assets/vendor/owl.carousel/owl.carousel.min.js' %}"></script>
       <script src="{% static 'assets/vendor/isotope-layout/isotope.pkgd.min.js' %}"></script>
       <script src="{% static 'assets/vendor/aos/aos.js' %}"></script>
-      <script src="{% static 'js/bootstrap.min.js' %"></script>
+      <script src="{% static 'js/bootstrap.min.js' %}"></script>
       <!-- for crousel -->
       <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
