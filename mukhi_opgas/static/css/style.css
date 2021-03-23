@@ -1,7 +1,6 @@
 body{
   padding: 0;
   margin:0;
-  background: #a2cce3;
 }
 
 
@@ -42,13 +41,11 @@ body{
 }
 
 
-.navbar-nav a{
+/* .navbar-nav a{
 color:white;
-/* height:50px; */
 }
 
 .navbar-nav a:hover{
-  /* border-bottom: 1px solid white; */
   color:gray;
 
 }
@@ -59,7 +56,7 @@ color:white;
 
 .active{
   color:grey;
-}
+} */
 
 
 
@@ -738,3 +735,35 @@ color:white;
 #footer .credits a {
   color: #a2cce3;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
