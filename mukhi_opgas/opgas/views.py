@@ -1,20 +1,31 @@
 from django.shortcuts import render,redirect
-from django.http import HttpResponse
-from .models import Property
+from django.http import HttpResponse,Http404
+from .models import Property,User
 from .forms import Property_form
 from .forms import Property_form2
 from django.contrib.auth.decorators import login_required
+from django.contrib import messages
 # Create your views here.
 
 @login_required
 def Base_pgindex(request):
     return render(request, "pgindex.html")
 
-
+# @login_required
 def pgindex(request):
+    user_name = None
+    if login_required == True:
+        currentuser = request.user
+        user_name=currentuser.id
+    else:
+        user_name=None
+    # user_id=None
+    # if login_required == True:
+    #     current_user=request.user
+    #     user_id=current_user.id
+    # else:
+    #     user_id=None
 
-    current_user=request.user
-    user_id=current_user.id
     # pro1=Property()
     # pro1.p_name="Fortune Hotel"
     # pro1.p_city="Rajkot"
@@ -39,7 +50,7 @@ def pgindex(request):
     # pro3.p_bhk="3 BHK"
     # pro3.p_img="Fortune.jpg"
 
-    # prope=Property.objects.all()
+    prope=Property.objects.all()
 
     # props1=[]
     # length=len(prope)
@@ -98,15 +109,17 @@ def pgindex(request):
     # props1=[pro1,pro2,pro3]
     props2=[pro4,pro5,pro6]
     props3=[pro7,pro8,pro9]
-    context={'user_id':user_id,'props1':props2, 'props2':props2, 'props3':props3}
+    context={'user_name':user_name, 'props1':prope, 'props2':props2, 'props3':props3}
 
     return render(request, 'pgindex.html', context)
 
 
 
-@login_required
+# @login_required
 def Add_property(request):
-    # return render(request, 'mysite/addproperty.html')
+    # if not request.user.is_staff or not request.user.is_superuser:
+    #     raise Http404
+
     if request.method == "POST":
         # fm=Property_form2(request.POST)
         # if fm.is_valid():
@@ -148,12 +161,14 @@ def Add_property(request):
         data.tenants_preffered=tenants_preffered
         data.p_amanities=p_amanities
         data.house_rules=house_rules
-        # current_user=request.user
-        # user_id=current_user.id
+        
         for img in images:
             data.photo=img
             data.save()
-    
+        
+        return redirect("/")
+    # else:
+    #     messages.WARNING("Invalid data")
         # fm=Property_form2()
         # image_form = Property_form()
         # img = Property.objects.all()

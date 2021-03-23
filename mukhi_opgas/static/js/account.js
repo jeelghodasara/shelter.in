@@ -124,9 +124,9 @@ sign_in_btn.addEventListener("click", () => {
 
 
 
-function ac_fun(id, elementValue){
-  document.getElementById(id).style.display=elementValue.value==1 ? 'block':'none';
-}
+// function ac_fun(id, elementValue){
+//   document.getElementById(id).style.display=elementValue.value==1 ? 'block':'none';
+// }
 
 // function showDiv(divId, element)
 // {

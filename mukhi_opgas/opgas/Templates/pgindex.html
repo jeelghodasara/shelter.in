@@ -8,8 +8,9 @@
         <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"> -->
         <link rel="stylesheet" href="{% static 'css/style.css' %}">
         <link rel="stylesheet" href="{% static 'js/main.js' %}">
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
-
+        {% comment %} <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous"> {% endcomment %}
+        <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+        
         <link href="{% static 'images/logo.png' %}" rel="icon">
 		  <!-- <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon"> -->
 
@@ -29,7 +30,7 @@
       <!-- <link href="assets/css/style.css" rel="stylesheet"> -->
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
       <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-
+    
 
 
 
@@ -58,9 +59,9 @@
             <a class="nav-link" href="{% url 'Register' %}">Account <span class="sr-only"></span></a>
             <a class="nav-link" href="#">Privacy <span class="sr-only"></span></a>
           </li>
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-display="static" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="{% static 'images/user.png' %}" alt="">
-                {{user.username}}
+            <div class="dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-expanded="false"><img src="{% static 'images/user.png' %}" alt="">
+                {{request.user.username}}
               </a>
               <div class="dropdown-menu dropdown-menu-lg-right" aria-labelledby="navbarDropdown">
                 <h6 class="dropdown-header">User settings</h6>
@@ -74,7 +75,7 @@
               </div>
 
     
-            </li>
+            </div>
     
           </ul>
     
@@ -329,15 +330,15 @@
                                                   <tr class="row">
                                                     <td class="col-sm">
                                                       Floor
-                                                      <p>{{pro.p_floor}}</p>
+                                                      <p>{{pro.p_floor_no}}</p>
                                                     </td>
                                                     <td class="col-sm">
-                                                      Beds
-                                                      <p>2&3</p>
+                                                      Sharing Member
+                                                      <p>{{pro.p_sharing_member}}</p>
                                                     </td>
                                                     <td class="col-sm">
-                                                      AC
-                                                      <p>0</p>
+                                                      Tenants
+                                                      <p>{{pro.tenants_preffered}}</p>
                                                     </td>
                                                   </tr>
                                               </table>

@@ -1,48 +1,56 @@
 from django.shortcuts import render, redirect
-from django.http import HttpResponse 
+from django.http import HttpResponse, HttpResponseRedirect 
 from django.contrib import auth, messages
 from django.contrib.auth import authenticate
 from django.contrib.auth.models import User
 from .models import User_Registration
-from .forms import RegisterForm
+from .forms import RegisterForm, ProfileRegisterForm
+from django.contrib.auth.decorators import login_required
+# from django.contrib.auth.forms import AuthenticationForm
+from django.contrib.auth.hashers import make_password
 # Create your views here.
 
 
 def login(request):
-    if request.method == "POST":
-        # email=request.POST.get('Email')
-        # get_user_name_email=User.objects.get(email=email)
-        user = auth.authenticate(username=request.POST.get('Username'), password=request.POST.get('Password'))
+    if request.method=="POST":
+        username=request.POST.get('Username')
+        password=request.POST.get('Password')
+        user=auth.authenticate(username=username,password=password)
         if user is not None:
-            auth.login(request,user)
-            showusername=request.POST["Username"]
-            return render(request,"pgindex.html",{'showusername':showusername})
-        else:
-            return render(request,'mysite/signup.html',{'error':"Invalid login candidates."})
+            auth.login(request, user)
+            return redirect("/")
     else:
-        render(request,'mysite/signup.html')
+        return render(request, "mysite/signup.html")
+    
 
-
-
+@login_required
 def logout(request):
     auth.logout(request)
     messages.info(request, "Logged out successfully!")
     return redirect("/")
 
 def Register(request):
-    if request.method == 'POST':
-        username=request.POST['Username']
-        try:
-            user=User.objects.get(username=username)
-            return render(request, "mysite/signup.html",{'error':"Username has already been taken"})
-        except User.DoesNotExist:
-            user=User.objects.create_user(username=request.POST.get('Username'),password=request.POST.get('Password'),email=request.POST.get('Email'))
-            user_type=request.POST.get('u_selection')
-            mobile_no=request.POST.get('Mobile_no')
-            data=User_Registration(user_type=user_type,mobile_no=mobile_no,user=user)
-            data.save()
+    if request.method == 'POST':    
+
+        profileform=ProfileRegisterForm(data=request.POST)
+        form=RegisterForm(data=request.POST)
+        if form.is_valid():
+            user=form.save()
+            user.password=make_password(user.password)
+            user.save()
             auth.login(request,user)
-            return HttpResponse("SIGGNED UP!!!")
+            user_type=request.POST.get('u_selection')
+            if user_type=="Owner":
+                data=User_Registration(user_type=request.POST.get('u_selection'),mobile_no=request.POST.get('mobile_no'),user=user)
+                data.save()
+            
+        return redirect('/')
+
+        context={"form":profileform,'mainform':form}
+        return render(request,"mysite/signup.html",context)
     else:
-        return render(request,"mysite/signup.html")
+        form=ProfileRegisterForm()
+        mainform=RegisterForm()
+        context={"form":form,'mainform':mainform}
+        return render(request,"mysite/signup.html",context)
 
