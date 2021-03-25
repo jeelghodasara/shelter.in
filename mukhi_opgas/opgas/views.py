@@ -1,6 +1,6 @@
 from django.shortcuts import render,redirect
 from django.http import HttpResponse,Http404
-from .models import Property,User
+from .models import Property, User, User_Registration
 from .forms import Property_form
 from .forms import Property_form2
 from django.contrib.auth.decorators import login_required
@@ -160,8 +160,11 @@ def Add_property(request):
         data.p_sharing_member=p_sharing_member
         data.tenants_preffered=tenants_preffered
         data.p_amanities=p_amanities
-        data.house_rules=house_rules
-        
+        data.house_rules=house_rules 
+        # user=User_Registration
+        # if user:
+        #     data.owner=user.pk
+
         for img in images:
             data.photo=img
             data.save()

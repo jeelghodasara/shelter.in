@@ -32,7 +32,7 @@
       {% comment %} <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"> {% endcomment %}
       {% comment %} <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"> {% endcomment %}
 
-      <style>h5#i {
+      {% comment %} <style>h5#i {
     margin-top: -144px;
 }h5#i {
     margin-top: -144px;
@@ -83,6 +83,7 @@
 }
 element.style {
 }
+</style>
 <style>
 #footer .footer-top {
     background: #444444;
@@ -159,7 +160,7 @@ h3 {
 
     font-family: emoji;
 }
-</style>
+</style> {% endcomment %}
 
 
     <title>Online Paying Guest Accommodation System</title>
@@ -170,7 +171,7 @@ h3 {
     <header>
         <nav id="navbar_top" class="navbar navbar-expand-lg navbar-dark bg-dark">
             <div class="container">
-                <h3><img src="{% static 'images/lo.png' %}" alt=width="35px;" height="35px;">shelter.in</h3>
+                <h3 style="color:white;"><img src="{% static 'images/lo.png' %}" alt=width="35px;" height="35px;"> shelter.in</h3>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main_nav"
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -180,34 +181,39 @@ h3 {
                         <li class="nav-item active"><a class="nav-link" href="#"> Home </a></li>
                         <li class="nav-item"><a class="nav-link" href="#"> Serivces </a></li>
                         <li class="nav-item"><a class="nav-link" href="#"> Privacy </a></li>
-                        <li class="nav-item"><a class="nav-link" href="{% url 'Register' %}"> Account </a></li>
+                        
+                        {% if user.is_authenticated %}
                         <div class="dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
                                data-toggle="dropdown" aria-expanded="false"><img src="{% static 'images/user.png' %}"
                                                                                  alt="">
                                 {{request.user.username}}
                             </a>
-                            <div class="dropdown-menu dropdown-menu-lg-right" aria-labelledby="navbarDropdown">
-                                <div class="dropdown-divider"></div>
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                {% comment %} <div class="dropdown-divider"></div> {% endcomment %}
                                 <a class="dropdown-item" href="#">Profile</a>
-                                <div class="dropdown-divider"></div>
+                                {% comment %} <div class="dropdown-divider"></div> {% endcomment %}
                                 <a class="dropdown-item" href="#">Manage Propery</a>
-                                <div class="dropdown-divider"></div>
+                                {% comment %} <div class="dropdown-divider"></div> {% endcomment %}
                                 <a class="dropdown-item" href="/addproperty">Add Property</a>
-                                <div class="dropdown-divider"></div>
+                                {% comment %} <div class="dropdown-divider"></div> {% endcomment %}
                                 <a class="dropdown-item" href="#">Dashboard</a>
-                                <div class="dropdown-divider"></div>
+                                {% comment %} <div class="dropdown-divider"></div> {% endcomment %}
                                 <a class="dropdown-item" href="#">Admin Dashboard</a>
-                                <div class="dropdown-divider"></div>
+                                {% comment %} <div class="dropdown-divider"></div> {% endcomment %}
                                 <a class="dropdown-item" href="#">Settings</a>
-                                                                <div class="dropdown-divider"></div>
-
-                                <button type="button" onclick="{% url 'logout' %}" class="btn btn-dark">Logout</button>
-
-<!--                                <a class="btn btn-dark" href="{% url 'logout' %}"-->
-<!--                                   style="background-color: lightcyan;border:1px solid black;border-radius: 15px;text-align: center;">Logout</a>-->
+                                <hr>
+                                {% comment %} <div class="dropdown-divider"></div> {% endcomment %}
+                                <div class="text-center">
+                                <button type="button"  class="btn btn-dark"><a href="{% url 'logout' %}" style="text-decoration:none;color:white;">Logout</a></button>
+                                </div>       
+                                {% comment %} <a class="btn btn-dark" href="{% url 'logout' %}"
+                                  style="background-color: lightcyan;border:1px solid black;border-radius: 15px;text-align: center;">Logout</a> {% endcomment %}
                             </div>
                         </div>
+                        {% else %}
+                              <li class="nav-item"><a class="nav-link" href="{% url 'Register' %}"> Signup/Login </a></li>
+                        {% endif %}
                     </ul>
                 </div> <!-- navbar-collapse.// -->
             </div> <!-- container.// -->
@@ -235,13 +241,23 @@ h3 {
 
 
 
-<div class="pos-f-t">
-  <nav class="navbar navbar-dark" id="o">
+{% comment %} <div class="pos-f-t"> {% endcomment %}
+  {% comment %} <nav class="navbar"> {% endcomment %}
 
-    <button class="navbar-toggler" type="button" onclick="togNav()" data-toggle="collapse" data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
+    {% comment %} <button class="navbar bg-secondary" type="button" onclick="togNav()" data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation"> {% endcomment %}
+      {% comment %} <span class="navbar-toggler-icon"></span> {% endcomment %}
+      {% comment %} <a style="color:white;">Apply Filters</a> {% endcomment %}
+    {% comment %} </button> {% endcomment %}
+          <div class="filters" id="filterid" style="margin-top:0;background:#68A6"><button onclick="togNav()">Filters</button>
+          
+          <input type="text" placeholder="Search">
+          <button class="search-btn"><img src="{% static 'images/search.png' %}" alt=""></button>
+        
+        
 
+      {% comment %} <div class="filter" onclick="togNav()" style="color:back;cursor:pointer;blackground:red;">Filters
+      <input class="text" ><button class="search-btn"></button>
+      </div> {% endcomment %}
            <a href="#"><label>Villas</label></a>
            <a href="#"><label>Hotels</label></a>
            <a href="#"><label>PG</label></a>
@@ -250,6 +266,9 @@ h3 {
            <a href="#"><label>Apartments</label></a>
            <a href="#"><label>Guest&nbspHouses</label></a>
            <a href="#"><label>Farm&nbspHouse</label></a>
+           
+           
+           </div>
 <!--           <a href="#"><label>Samaj</label></a>-->
 
 <!--    <form class="d-flex">-->
@@ -257,8 +276,8 @@ h3 {
 <!--      <button class="btn btn-outline-success" type="submit">Search</button>-->
 <!--    </form>-->
 
-  </nav>
-</div>
+  {% comment %} </nav> {% endcomment %}
+{% comment %} </div> {% endcomment %}
 
 
 <!--          <i class="fa fa-bars"></i>-->
@@ -268,19 +287,20 @@ h3 {
       </div>
 
       <div class="sidebar" id="sidebarid">
-      <div class="dropdown">
-<!--  <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">-->
-<!--    Dropdown link-->
-<!--  </a>-->
+          {% comment %} <div class="dropdown">
+          <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Dropdown link
+          </a>
 
-  <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-    <a class="dropdown-item" href="#">Action</a>
-    <a class="dropdown-item" href="#">Another action</a>
-    <a class="dropdown-item" href="#">Something else here</a>
-  </div>
-</div>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+              <a class="dropdown-item" href="#">Action</a>
+              <a class="dropdown-item" href="#">Another action</a>
+              <a class="dropdown-item" href="#">Something else here</a>
+            </div>
+          </div> {% endcomment %}
+          
         <li class="nav-item dropdown dropright" style="list-style: none;">
-          <a class="btn btn-secondary dropdown-toggle" href="#" id="dropdownMenuLink" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+          <a class="nav-link dropdown-toggle" href="#" id="dropdownMenuLink" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
           State
           </a>
           <div class="dropdown-menu" aria-labelledby="dropdownMenuLink" id="fi_search">
@@ -301,7 +321,7 @@ h3 {
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-display="static" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           BHK
           </a>
-          <div class="dropdown-menu dropdown-menu-lg-right" aria-labelledby="navbarDropdown" id="fi_search">
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown" id="fi_search">
 
             <a class="dropdown-item" href="#">1 BHK</a>
             <a class="dropdown-item" href="#">2 BHK</a>
@@ -315,7 +335,7 @@ h3 {
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-display="static" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           Price
           </a>
-          <div class="dropdown-menu dropdown-menu-lg-right" aria-labelledby="navbarDropdown" id="fi_search">
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown" id="fi_search">
 
             <a class="dropdown-item" href="#">upto 2000</a>
             <a class="dropdown-item" href="#">upto 5000</a>
@@ -331,7 +351,7 @@ h3 {
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-display="static" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           Floor
           </a>
-          <div class="dropdown-menu dropdown-menu-lg-right" aria-labelledby="navbarDropdown" id="fi_search">
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown" id="fi_search">
 
             <a class="dropdown-item" href="#">1st&nbsp-&nbsp4th</a>
             <a class="dropdown-item" href="#">5th&nbsp-&nbsp10th</a>
@@ -345,7 +365,7 @@ h3 {
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-display="static" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           Amenities
           </a>
-          <div class="dropdown-menu dropdown-menu-lg-right" aria-labelledby="navbarDropdown" id="fi_search">
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown" id="fi_search">
 
             <a class="dropdown-item" href="#">Vastu&nbsp;complient</a>
             <a class="dropdown-item" href="#">Air&nbspconditioned</a>
@@ -358,7 +378,7 @@ h3 {
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-display="static" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           Properties
           </a>
-          <div class="dropdown-menu dropdown-menu-lg-right" aria-labelledby="navbarDropdown" id="fi_search">
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown" id="fi_search">
             <a class="dropdown-item" href="#">Hostiles</a>
             <a class="dropdown-item" href="#">Hotels</a>
             <a class="dropdown-item" href="#">Girls&nbspHostiles</a>
@@ -432,6 +452,185 @@ h3 {
   </section><!-- End Hero -->
 
 
+
+
+
+
+
+
+
+          <section class="pt-5 pb-5">
+      <div class="container">
+        <div class="row">
+            <div class="col-6">
+                <h3 class="mb-3" style="color:black;">Near by location</h3>
+            </div>
+
+            <div class="col-6 text-right">
+                <a class="btn btn-primary mb-3 mr-1" href="#carouselExampleIndicators2" role="button" data-slide="prev">
+                    <i class="fa fa-arrow-left"></i>
+                </a>
+                <a class="btn btn-primary mb-3 " href="#carouselExampleIndicators2" role="button" data-slide="next">
+                    <i class="fa fa-arrow-right"></i>
+                </a>
+            </div>
+            <div class="col-12">
+                <div id="carouselExampleIndicators2" class="carousel slide" data-ride="carousel">
+    
+                    <div class="carousel-inner">
+                      
+                        <div class="carousel-item active">
+                            <div class="row">
+                              {% for pro in props1 %}
+                                <div class="col-md-4 mb-3">
+                                    <div class="card">
+                                      
+                                        <img class="img-fluid" alt="100%x280" src="{{pro.photo.url}}">
+                                      
+                                        <div class="card-body">
+                                          <div class="rating">
+                                            <span class="fa fa-star checked"></span>
+                                            <span class="fa fa-star checked"></span>
+                                            <span class="fa fa-star checked"></span>
+                                            <span class="fa fa-star"></span>
+                                            <span class="fa fa-star"></span>
+                                            <span>(4.4)&nbsp<i onclick="myFunction(this)" class="fa fa-thumbs-up"></i></span>
+                                          </div>
+                                        </div>
+                                        <div class="top-text">
+                                          <div class="name">{{pro.p_name}} - {{pro.p_city}}</div>
+                                          <p>{{pro.p_rooms_available}}&nbsp;BHK</p>
+                                          <label>Price :&nbsp<b>&#x20B9;{{pro.p_price}}</b></label>
+                                        </div>
+                                        <div class="bottom-text">
+                           
+                                            <p><a href="#">See The Location on Map</a><p>
+                                              <table class="table">
+                                                  <tr class="row">
+                                                    <td class="col-sm">
+                                                      Floor
+                                                      <p>{{pro.p_floor_no}}</p>
+                                                    </td>
+                                                    <td class="col-sm">
+                                                      Sharing Member
+                                                      <p>{{pro.p_sharing_member}}</p>
+                                                    </td>
+                                                    <td class="col-sm">
+                                                      Tenants
+                                                      <p>{{pro.tenants_preffered}}</p>
+                                                    </td>
+                                                  </tr>
+                                              </table>
+                                              <button type="button" class="btn btn-secondary btn-sm">More Details</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                {% endfor %}
+                            </div>
+                        </div>
+
+
+                        <div class="carousel-item">
+                          <div class="row">
+                            {% for pro2 in props2 %}
+                              <div class="col-md-4 mb-3">
+                                  <div class="card">
+                                      <img class="img-fluid" alt="100%x280" src="{{baseUrl}}/{{pro2.p_img}}">
+                                      <div class="card-body">
+                                        <div class="rating">
+                                          <span class="fa fa-star checked"></span>
+                                          <span class="fa fa-star checked"></span>
+                                          <span class="fa fa-star checked"></span>
+                                          <span class="fa fa-star"></span>
+                                          <span class="fa fa-star"></span>
+                                          <span>(4.4)&nbsp<i onclick="myFunction(this)" class="fa fa-thumbs-up"></i></span>
+                                        </div>
+                                      </div>
+                                      <div class="top-text">
+                                        <div class="name">{{pro2.p_name}} - {{pro2.p_city}}</div>
+                                        <p>{{pro2.p_bhk}}</p>
+                                        <label>Price :&nbsp<b>&#x20B9;{{pro2.p_price}}</b></label>
+                                      </div>
+                                      <div class="bottom-text">
+                         
+                                          <p><a href="#">See The Location on Map</a><p>
+                                            <table class="table">
+                                                <tr class="row">
+                                                  <td class="col-sm">
+                                                    Floor
+                                                    <p>{{pro2.p_floor}}</p>
+                                                  </td>
+                                                  <td class="col-sm">
+                                                    Beds
+                                                    <p>2&3</p>
+                                                  </td>
+                                                  <td class="col-sm">
+                                                    AC
+                                                    <p>0</p>
+                                                  </td>
+                                                </tr>
+                                            </table>
+                                            <button type="button" class="btn btn-secondary btn-sm">More Details</button>
+                                      </div>
+                                  </div>
+                              </div>
+                              {% endfor %}
+                          </div>
+                      </div>
+
+                      <div class="carousel-item">
+                        <div class="row">
+                          {% for pro3 in props3 %}
+                            <div class="col-md-4 mb-3">
+                                <div class="card">
+                                    <img class="img-fluid" alt="100%x280" src="{{baseUrl}}/{{pro3.p_img}}">
+                                    <div class="card-body">
+                                      <div class="rating">
+                                        <span class="fa fa-star checked"></span>
+                                        <span class="fa fa-star checked"></span>
+                                        <span class="fa fa-star checked"></span>
+                                        <span class="fa fa-star"></span>
+                                        <span class="fa fa-star"></span>
+                                        <span>(4.4)&nbsp<i onclick="myFunction(this)" class="fa fa-thumbs-up"></i></span>
+                                      </div>
+                                    </div>
+                                    <div class="top-text">
+                                      <div class="name">{{pro3.p_name}} - {{pro3.p_city}}</div>
+                                      <p>{{pro3.p_bhk}}</p>
+                                      <label>Price :&nbsp<b>&#x20B9;{{pro3.p_price}}</b></label>
+                                    </div>
+                                    <div class="bottom-text">
+                       
+                                        <p><a href="#">See The Location on Map</a><p>
+                                          <table class="table">
+                                              <tr class="row">
+                                                <td class="col-sm">
+                                                  Floor
+                                                  <p>{{pro3.p_floor}}</p>
+                                                </td>
+                                                <td class="col-sm">
+                                                  Beds
+                                                  <p>2&3</p>
+                                                </td>
+                                                <td class="col-sm">
+                                                  AC
+                                                  <p>0</p>
+                                                </td>
+                                              </tr>
+                                          </table>
+                                          <button type="button" class="btn btn-secondary btn-sm">More Details</button>
+                                    </div>
+                                </div>
+                            </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                  </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </section>
 
 
 
@@ -670,14 +869,17 @@ Hotels
       <script src="{% static 'assets/vendor/owl.carousel/owl.carousel.min.js' %}"></script>
       <script src="{% static 'assets/vendor/isotope-layout/isotope.pkgd.min.js' %}"></script>
       <script src="{% static 'assets/vendor/aos/aos.js' %}"></script>
-      <script src="{% static 'js/bootstrap.min.js' %}"></script>
+      {% comment %} <script src="{% static 'js/bootstrap.min.js' %}"></script> {% endcomment %}
       <script src="{% static 'js/main.js' %}"></script>
       <!-- for crousel -->
-      <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+      {% comment %} <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script> {% endcomment %}
       <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
       <!-- for bottstrap affix -->
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
       <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script> -->
+      <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
       <script>
         if ($(window).width() > 992) {
             $(window).scroll(function(){  

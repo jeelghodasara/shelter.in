@@ -19,6 +19,9 @@ def login(request):
         if user is not None:
             auth.login(request, user)
             return redirect("/")
+        else:
+            messages.error(request,"Please enter correct username and password!!!")
+            return redirect("/Register")
     else:
         return render(request, "mysite/signup.html")
     
@@ -34,17 +37,38 @@ def Register(request):
 
         profileform=ProfileRegisterForm(data=request.POST)
         form=RegisterForm(data=request.POST)
-        if form.is_valid():
+        
+        un=request.POST.get('username')
+        pwd=request.POST.get('password')
+        eml=request.POST.get('email')
+        mno=request.POST.get('mobile_no')
+        
+        try:
+            usr=User.objects.get(username=un)
+            messages.error(request,"Username already taken!!! Please try another Username.")
+        except:
+            pass
+        if len(un)<3 or len(eml)<5 or len(pwd)<5:
+            messages.error(request,"Please input correct data!!")
+        elif form.is_valid():
             user=form.save()
             user.password=make_password(user.password)
             user.save()
             auth.login(request,user)
             user_type=request.POST.get('u_selection')
             if user_type=="Owner":
-                data=User_Registration(user_type=request.POST.get('u_selection'),mobile_no=request.POST.get('mobile_no'),user=user)
+                if len(mno)<10:
+                    messages.error(request,"Please enter mobile number must be 10 charactor!!")
+                data=User_Registration(user_type=user_type,mobile_no=mno,user=user)
                 data.save()
-            
-        return redirect('/')
+                return redirect('/')
+            elif user_type=="Guest":
+                data=User_Registration(user_type=user_type,mobile_no=None,user=user)
+                data.save()
+                return redirect('/')
+            else:
+                messages.error(request,"Enter correct data!! ")
+        
 
         context={"form":profileform,'mainform':form}
         return render(request,"mysite/signup.html",context)
@@ -53,4 +77,3 @@ def Register(request):
         mainform=RegisterForm()
         context={"form":form,'mainform':mainform}
         return render(request,"mysite/signup.html",context)
-

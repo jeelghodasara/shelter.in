@@ -7,7 +7,7 @@ body{
 .filters input[type="text"]{
   border:none;
   margin-left: 5%;
-  width:50%;
+  width:20%;
   border-radius: 5px;
   outline: none;
   line-height: 25px;

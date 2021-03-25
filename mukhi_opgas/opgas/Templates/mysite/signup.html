@@ -31,6 +31,11 @@
                 <input type="password" placeholder="Password" name="Password"/>
               {% comment %} {{auform.password}} {% endcomment %}
             </div>
+            {% for message in messages %}
+            <div class="alertmessage" style="color:red;">
+              <p>{{message}}</p>
+            </div>
+            {% endfor %}
             <a href="#" class="forgot-password"><p><small>Forgot Password?</small></p></a>
             <input type="submit" value="Login" class="btn solid" />
             <p class="social-text">Or Sign in with social platforms</p>
@@ -85,6 +90,12 @@
               {% comment %} <input type="tel" placeholder="Mobile Number" name="Mobile_no" required/> {% endcomment %}
               {{form.mobile_no}}
             </div>
+            {% for eror in messages %}
+            <div class="alertmessage" style="color:red;">
+              <p>{{eror}}</p>
+              <p>{{mainform.errors.username}}</p>
+            </div>
+            {% endfor %}
             <input type="submit" class="btn" value="Sign up" />
             {% comment %} <button class="btn" type="submit" />Sign up</button> {% endcomment %}
             <p class="social-text">Or Sign up with social platforms</p>
