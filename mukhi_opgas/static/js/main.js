@@ -22,4 +22,3 @@ function togNav() {
     nav.style.opacity = 1;
   }
 }
-

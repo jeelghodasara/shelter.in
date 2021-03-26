@@ -3,14 +3,77 @@ body{
   margin:0;
 }
 
+.filters{
+  /* background: gray; */
+  width:100%;
+  line-height: 35px;
+  /* margin-top: -20px; */
+  background-color: #333;
+  /* z-index:60; */
+}
+
+.filters a{
+  /* padding-left: 1%; */
+  /* padding-right: 1%; */
+  color: white;
+  padding-left: 1%;
+  padding-right: 1%;
+  padding-top:5px;
+  padding-bottom:5px;
+  letter-spacing: 2px;
+  background: lightslategray;
+  border-radius: 30px;
+  font-size: smaller;
+  position:relative;
+  text-transform: uppercase;
+}
+.filters a:hover{
+  color: black;
+  cursor: pointer;
+  background: white;
+}
+
+.filters a:hover:active{
+  background: lightsteelblue;
+  color: #0d2735;
+}
+
+.filters .search-btn{
+  border:none;
+  outline: none;
+  width:200px;
+  cursor: pointer;
+}
+
+
+.filters .filterbutton{
+  background: lightslategray;
+  margin-top: 1%;
+  /* margin-left: 20px; */
+  color: #ddd;
+  padding-left: 2%;
+  padding-right:2%;
+  border-radius: 20px;
+  text-transform: uppercase;
+  cursor: pointer;
+  outline: none;
+  border:none;
+  font-size: small;
+  font-weight: 600;
+  letter-spacing: 2px;
+}
+
+.filterbutton:hover:active{
+background: #333;
+}
 
 .filters input[type="text"]{
   border:none;
-  margin-left: 5%;
+  margin-left: 2%;
   width:20%;
   border-radius: 5px;
   outline: none;
-  line-height: 25px;
+  line-height: 30px;
   padding-left: 2%;
 }
 
@@ -36,9 +99,9 @@ body{
 
 
 
-.bg{ 
+/* .bg{ 
   background:#123649;
-}
+} */
 
 
 /* .navbar-nav a{
@@ -443,21 +506,6 @@ color:white;
 
 
 
-.filters{
-  /* background: gray; */
-  width:100%;
-  line-height: 35px;
-  margin-top: -20px;
-  background-color: #333;
-  /* z-index:60; */
-}
-
-.filters button{
-  border:none;
-  outline: none;
-  width:200px;
-  cursor: pointer;
-}
 
 
 
@@ -736,21 +784,20 @@ color:white;
   color: #a2cce3;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+.controls-top{
+  text-align: center;
+  margin-bottom: 2%;
+}
+.carousel-multi-item .controls-top .btn-floating {
+  background: gray !important;
+  text-align: center;
+  padding-left:1%;
+  padding-right:1%;
+  padding-top:8px;
+  padding-bottom:8px;
+  color: white;
+  border-radius: 100%;
+}
 
 
 
