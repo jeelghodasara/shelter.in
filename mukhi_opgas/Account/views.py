@@ -53,21 +53,27 @@ def Register(request):
         elif form.is_valid():
             user=form.save()
             user.password=make_password(user.password)
-            user.save()
-            auth.login(request,user)
             user_type=request.POST.get('u_selection')
             if user_type=="Owner":
                 if len(mno)<10:
                     messages.error(request,"Please enter mobile number must be 10 charactor!!")
-                data=User_Registration(user_type=user_type,mobile_no=mno,user=user)
-                data.save()
-                return redirect('/')
+                    return redirect('Register')
+                else:
+                    user.save()
+                    data=User_Registration(user_type=user_type,mobile_no=mno,user=user)
+                    data.save()
+                    auth.login(request,user)
+                    return redirect('/')
             elif user_type=="Guest":
+                user.save()
                 data=User_Registration(user_type=user_type,mobile_no=None,user=user)
                 data.save()
+                auth.login(request,user)
                 return redirect('/')
             else:
                 messages.error(request,"Enter correct data!! ")
+        else:
+            messages.error("Invalid form!!")
         
 
         context={"form":profileform,'mainform':form}

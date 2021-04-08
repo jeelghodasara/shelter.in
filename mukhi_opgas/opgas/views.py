@@ -5,6 +5,7 @@ from .forms import Property_form
 from .forms import Property_form2
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
+from math import ceil
 # Create your views here.
 
 @login_required
@@ -51,66 +52,69 @@ def pgindex(request):
     # pro3.p_img="Fortune.jpg"
 
     prope=Property.objects.all()
-
+    n=len(prope)
+    nSlides=n//4 + ceil((n/4) - (n//4))
+    allpro=[[prope,range(1, len(prope)), nSlides]]
     # props1=[]
     # length=len(prope)
     # for i in range(length):
     #     props1.append(i)
     
     
-    pro4=Property()
-    pro4.p_name="Guest House"
-    pro4.p_city="Surat"
-    pro4.p_floor="20"
-    pro4.p_price="2000"
-    pro4.p_bhk="2 BHK"
-    pro4.p_img="Fortune.jpg"
+    # pro4=Property()
+    # pro4.p_name="Guest House"
+    # pro4.p_city="Surat"
+    # pro4.p_floor="20"
+    # pro4.p_price="2000"
+    # pro4.p_bhk="2 BHK"
+    # pro4.p_img="Fortune.jpg"
 
-    pro5=Property()
-    pro5.p_name="Vrundavan Resort"
-    pro5.p_city="Rajkot"
-    pro5.p_floor="0"
-    pro5.p_price="2000/Hr"
-    pro5.p_bhk="0"
-    pro5.p_img="Fortune.jpg"
+    # pro5=Property()
+    # pro5.p_name="Vrundavan Resort"
+    # pro5.p_city="Rajkot"
+    # pro5.p_floor="0"
+    # pro5.p_price="2000/Hr"
+    # pro5.p_bhk="0"
+    # pro5.p_img="Fortune.jpg"
 
-    pro6=Property()
-    pro6.p_name="Jay Motels"
-    pro6.p_city="Vadodara"
-    pro6.p_floor="2"
-    pro6.p_price="15000/hr"
-    pro6.p_bhk="5 BHK"
-    pro6.p_img="Fortune.jpg"
+    # pro6=Property()
+    # pro6.p_name="Jay Motels"
+    # pro6.p_city="Vadodara"
+    # pro6.p_floor="2"
+    # pro6.p_price="15000/hr"
+    # pro6.p_bhk="5 BHK"
+    # pro6.p_img="Fortune.jpg"
 
-    pro7=Property()
-    pro7.p_name="Jaygirnar Hotel"
-    pro7.p_city="Jamnagar"
-    pro7.p_floor="7"
-    pro7.p_price="2000/day"
-    pro7.p_bhk="1 BHK"
-    pro7.p_img="Fortune.jpg"
+    # pro7=Property()
+    # pro7.p_name="Jaygirnar Hotel"
+    # pro7.p_city="Jamnagar"
+    # pro7.p_floor="7"
+    # pro7.p_price="2000/day"
+    # pro7.p_bhk="1 BHK"
+    # pro7.p_img="Fortune.jpg"
 
-    pro8=Property()
-    pro8.p_name="Guest House"
-    pro8.p_city="Surat"
-    pro8.p_floor="20"
-    pro8.p_price="2000"
-    pro8.p_bhk="2 BHK"
-    pro8.p_img="Fortune.jpg"
+    # pro8=Property()
+    # pro8.p_name="Guest House"
+    # pro8.p_city="Surat"
+    # pro8.p_floor="20"
+    # pro8.p_price="2000"
+    # pro8.p_bhk="2 BHK"
+    # pro8.p_img="Fortune.jpg"
 
-    pro9=Property()
-    pro9.p_name="Guest House"
-    pro9.p_city="Surat"
-    pro9.p_floor="20"
-    pro9.p_price="2000"
-    pro9.p_bhk="2 BHK"
-    pro9.p_img="Fortune.jpg"
+    # pro9=Property()
+    # pro9.p_name="Guest House"
+    # pro9.p_city="Surat"
+    # pro9.p_floor="20"
+    # pro9.p_price="2000"
+    # pro9.p_bhk="2 BHK"
+    # pro9.p_img="Fortune.jpg"
+
 
     # props1=[pro1,pro2,pro3]
-    props2=[pro4,pro5,pro6]
-    props3=[pro7,pro8,pro9]
-    context={'user_name':user_name, 'props1':prope, 'props2':props2, 'props3':props3}
-
+    # props2=[pro4,pro5,pro6]
+    # props3=[pro7,pro8,pro9]
+    form2=User_Registration.objects.all()
+    context={'user_name':user_name, 'props1':allpro, 'form2':form2}
     return render(request, 'pgindex.html', context)
 
 
@@ -161,9 +165,7 @@ def Add_property(request):
         data.tenants_preffered=tenants_preffered
         data.p_amanities=p_amanities
         data.house_rules=house_rules 
-        # user=User_Registration
-        # if user:
-        #     data.owner=user.pk
+        data.owner=User_Registration.objects.get(user=request.user)
 
         for img in images:
             data.photo=img
@@ -179,6 +181,14 @@ def Add_property(request):
     return render(request, 'mysite/addproperty.html')
     
         
-        
+
+def Owner_dashbord(request):
+    return render(request,'mysite/Owner_dashbord.html')
+
+def Charts(request):
+    return render(request, 'mysite/charts.html')
+
+def Forgot_password(request):
+    return render(request,'mysite/forgot-password.html')
 
         

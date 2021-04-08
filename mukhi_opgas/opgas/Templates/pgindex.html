@@ -17,6 +17,7 @@
         <link href="{% static 'assets/vendor/icofont/icofont.min.css' %}" rel="stylesheet">
         <link href="{% static 'assets/vendor/boxicons/css/boxicons.min.css' %}" rel="stylesheet">
         <link href="{% static 'assets/vendor/owl.carousel/assets/owl.carousel.min.css' %}" rel="stylesheet">
+        <link href="{% static 'Dashbordforowner/vendor/fontawesome-free/css/all.min.css' %}" rel="stylesheet" type="text/css">
       
 
         <title>Shelter.in</title>
@@ -46,22 +47,26 @@
                                 {{request.user.username}}
                             </a>
                             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                {% comment %} <div class="dropdown-divider"></div> {% endcomment %}
-                                <a class="dropdown-item" href="#">Profile</a>
-                                {% comment %} <div class="dropdown-divider"></div> {% endcomment %}
-                                <a class="dropdown-item" href="#">Manage Propery</a>
-                                {% comment %} <div class="dropdown-divider"></div> {% endcomment %}
-                                <a class="dropdown-item" href="/addproperty">Add Property</a>
-                                {% comment %} <div class="dropdown-divider"></div> {% endcomment %}
-                                <a class="dropdown-item" href="#">Dashboard</a>
-                                {% comment %} <div class="dropdown-divider"></div> {% endcomment %}
-                                <a class="dropdown-item" href="#">Admin Dashboard</a>
-                                {% comment %} <div class="dropdown-divider"></div> {% endcomment %}
-                                <a class="dropdown-item" href="#">Settings</a>
+                                <a class="dropdown-item" href="#"><i class="fas fa-user fa-sm fa-fw mr-2"></i>Profile</a>
+                                <a class="dropdown-item" href="#"><i class="fas fa-book fa-sm fa-fw mr-2"></i>My Bookings</a>
+                                {% for owner in form2 %}
+                                {% if owner.user_id == request.user.id and owner.user_type == "Owner" %}
+                                <a class="dropdown-item" href="/addproperty"><i class="fas fa-house-user fa-sm fa-fw mr-2"></i>Add Property</a>
+                                <a class="dropdown-item" href="#"><i class="fas fa-user-edit fa-sm fa-fw mr-2"></i>Manage Propery</a>
+                                <a class="dropdown-item" href="/OwnerDashbord"><i class="fas fa-tachometer-alt fa-sm fa-fw mr-2"></i>Dashboard</a>
+                                <a class="dropdown-item" href="#"><i class="fas fa-cogs fa-sm fa-fw mr-2"></i>Settings</a>
+                                {% endif %}
+                                {% endfor %}
+                                
+                                
+                                {% if request.user.username == "JEEL" %}
+                                <a class="dropdown-item" href="#"><i class="fas fa-user-shield fa-sm fa-fw mr-2"></i>Admin Dashboard</a>
+                                {% endif %}
+                                
+    
                                 <hr>
-                                {% comment %} <div class="dropdown-divider"></div> {% endcomment %}
                                 <div class="text-center">
-                                <button type="button"  class="btn btn-dark"><a href="{% url 'logout' %}" style="text-decoration:none;color:white;">Logout</a></button>
+                                <button type="button"  class="btn btn-dark"><a href="{% url 'logout' %}" style="text-decoration:none;color: white;">Logout</a></button>
                                 </div>       
                                 {% comment %} <a class="btn btn-dark" href="{% url 'logout' %}"
                                   style="background-color: lightcyan;border:1px solid black;border-radius: 15px;text-align: center;">Logout</a> {% endcomment %}
@@ -315,38 +320,46 @@
 
 
         {% comment %} top crouseal {% endcomment %}
-   <section>
-       
 
-  <div id="multi-item-example" class="carousel slide carousel-multi-item" data-ride="carousel" style="margin-top:8%;background:lightgray;height:80%;">
-  <h2>Near by location</h2> 
-  <!--Controls-->
-  <div class="controls-top">
-    <a class="btn-floating" href="#multi-item-example" data-slide="prev"><i class="fa fa-chevron-left"></i></i></a>
-    <a class="btn-floating" href="#multi-item-example" data-slide="next"><i class="fa fa-chevron-right"></i></a>
-  </div>
-  <!--/.Controls-->
+<section>
+<div id="multi-item-example" class="carousel slide carousel-multi-item" data-ride="carousel" style="margin-top:8%;background:lightgray;height:80%;">
+      <h2>Near by location</h2> 
+      <!--Controls-->
+      {% for pro, range, nSlides in props1 %}
+      <div class="controls-top">
+        <a class="btn-floating" href="#multi-item-example" data-slide="prev"><i class="fa fa-chevron-left"></i></i></a>
+        <a class="btn-floating" href="#multi-item-example" data-slide="next"><i class="fa fa-chevron-right"></i></a>
+      </div>
+      <!--/.Controls-->
 
-  <!--Indicators-->
-  <ol class="carousel-indicators">
-    <li data-target="#multi-item-example" data-slide-to="0" class="active"></li>
-    <li data-target="#multi-item-example" data-slide-to="1"></li>
-    
-  </ol>
-  <!--/.Indicators-->
+      <!--Indicators-->
+      
+      <ol class="carousel-indicators">
+      {% for inde in range %}
+        {% if forloop.first %}
+        <li data-target="#multi-item-example" data-slide-to="{{forloop.counter0}}" class="active"></li>
+        {% else %}
+        {% comment %} <li data-target="#multi-item-example" data-slide-to="{{inde}}" class="active"></li> {% endcomment %}
+        <li data-target="#multi-item-example" data-slide-to="{{forloop.counter0}}"></li>
+        {% endif %} 
+      {% endfor %}
+      </ol>
+      
+      
+      <!--/.Indicators-->
 
   <!--Slides-->
   <div class="carousel-inner" role="listbox">
-
     <!--First slide-->
+    {% for pr in pro %}
+      {% if forloop.first %}
     <div class="carousel-item active">
-      {% for pro in props1 %}
-      <div class="col-md-3" style="float:left">
+      {% else %}
+        <div class="carousel-item  ">
+      {% endif %}
+      {% comment %} <div class="col-md-3" style="float:left">
        <div class="card mb-2">
-          <img class="card-img-top"
-            src="{{pro.photo.url}}" alt="Card image cap" width="400" height="200">
-            {% comment %} <div class="card-body"> {% endcomment %}
-              {% comment %} </div> {% endcomment %}
+          <img class="card-img-top" src="{{pro.0.photo.url}}" alt="Card image cap" width="400" height="200">
           <div class="card-body">
                 <div class="rating">
                     <span class="fa fa-star checked"></span>
@@ -356,120 +369,45 @@
                     <span class="fa fa-star"></span>
                     <span>(4.4)&nbsp<i onclick="myFunction(this)" class="fa fa-thumbs-up"></i></span>
                 </div>
-            <h4 class="card-title">{{pro.p_name}}</h4>
-            {% comment %} <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
-              card's content.</p> {% endcomment %}
-            <a class="btn btn-primary" style="background:lightblue;border:none">Details</a>
-          </div>
-        </div>
-      </div>
-      {% endfor %}
-
-      {% comment %} <div class="col-md-3" style="float:left">
-        <div class="card mb-2">
-          <img class="card-img-top"
-            src="https://mdbootstrap.com/img/Photos/Horizontal/City/4-col/img%20(60).jpg" alt="Card image cap">
-          <div class="card-body">
-            <h4 class="card-title">Card title</h4>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
-              card's content.</p>
-            <a class="btn btn-primary">Button</a>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-md-3" style="float:left">
-        <div class="card mb-2">
-          <img class="card-img-top"
-            src="https://mdbootstrap.com/img/Photos/Horizontal/City/4-col/img%20(60).jpg" alt="Card image cap">
-          <div class="card-body">
-            <h4 class="card-title">Card title</h4>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
-              card's content.</p>
-            <a class="btn btn-primary">Button</a>
-          </div>
-        </div>
-      </div>
-      
-       <div class="col-md-3" style="float:left">
-       <div class="card mb-2">
-          <img class="card-img-top"
-            src="https://mdbootstrap.com/img/Photos/Horizontal/City/4-col/img%20(60).jpg" alt="Card image cap">
-          <div class="card-body">
-            <h4 class="card-title">Card title</h4>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
-              card's content.</p>
-            <a class="btn btn-primary">Button</a>
-          </div>
-        </div>
-      </div>
-
-    </div>
-    <!--/.First slide-->
-
-    <!--Second slide-->
-    <div class="carousel-item">
-
-      <div class="col-md-3" style="float:left">
-        <div class="card mb-2">
-          <img class="card-img-top"
-            src="https://mdbootstrap.com/img/Photos/Horizontal/City/4-col/img%20(60).jpg" alt="Card image cap">
-          <div class="card-body">
-            <h4 class="card-title">Card title</h4>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
-              card's content.</p>
-            <a class="btn btn-primary">Button</a>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-md-3" style="float:left">
-        <div class="card mb-2">
-          <img class="card-img-top"
-            src="https://mdbootstrap.com/img/Photos/Horizontal/City/4-col/img%20(47).jpg" alt="Card image cap">
-          <div class="card-body">
-            <h4 class="card-title">Card title</h4>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
-              card's content.</p>
-            <a class="btn btn-primary">Button</a>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-md-3" style="float:left">
-        <div class="card mb-2">
-          <img class="card-img-top"
-            src="https://mdbootstrap.com/img/Photos/Horizontal/City/4-col/img%20(48).jpg" alt="Card image cap">
-          <div class="card-body">
-            <h4 class="card-title">Card title</h4>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
-              card's content.</p>
-            <a class="btn btn-primary">Button</a>
-          </div>
-        </div>
-      </div>
-      
-      <div class="col-md-3" style="float:left">
-        <div class="card mb-2">
-          <img class="card-img-top"
-            src="https://mdbootstrap.com/img/Photos/Horizontal/City/4-col/img%20(47).jpg" alt="Card image cap">
-          <div class="card-body">
-            <h4 class="card-title">Card title</h4>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
-              card's content.</p>
-            <a class="btn btn-primary">Button</a>
-          </div>
+              <h4 class="card-title">{{pro.0.p_name}}</h4>
+              <a class="btn btn-primary" style="background:lightblue;border:none">Details</a>
+            </div>
         </div>
       </div> {% endcomment %}
 
-    </div>
-    <!--/.Second slide-->
+      
+        <div class="col-md-3" style="float:left">
+          <div class="card mb-2">
+              <img class="card-img-top" src="{{pr.photo.url}}" alt="Card image cap" width="400" height="200">
+              <div class="card-body">
+                    <div class="rating">
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star"></span>
+                        <span class="fa fa-star"></span>
+                        <span>(4.4)&nbsp<i onclick="myFunction(this)" class="fa fa-thumbs-up"></i></span>
+                    </div>
+                  <h4 class="card-title">{{pr.p_name}}</h4>
+                  <a class="btn btn-primary" style="background:lightblue;border:none">Details</a>
+                </div>
+            </div>
+        </div>
+        {% comment %} {% if forloop.counter|divisibleby:3 and forloop.counter > 0 and not forloop.last %}
+        </div><div class="crousel-item">
+        {% endif %} {% endcomment %}
 
+        
+        </div>
+    </div>
+    {% endfor %}
+    
+    <!--/.First slide-->
    
 
   </div>
   <!--/.Slides-->
-
+{% endfor %}
 </div>
 </section>
 
@@ -483,12 +421,8 @@
 
     <section class="pt-5 pb-5" style="background:gray;">
       <div class="container">
-      <h3 class="mb-3" style="color:black;text-align:left;">Near by city</h3>
+        <h3 class="mb-3" style="color:black;text-align:left;">Near by city</h3>
         <div class="row">
-            {% comment %} <div class="col-6"> {% endcomment %}
-                
-            {% comment %} </div> {% endcomment %}
-
             <div class="col-6 text-right">
                 <a class="btn btn-primary mb-3 mr-1" href="#carouselExampleIndicators2" role="button" data-slide="prev">
                     <i class="fa fa-arrow-left"></i>
@@ -496,19 +430,15 @@
                 <a class="btn btn-primary mb-3 " href="#carouselExampleIndicators2" role="button" data-slide="next">
                     <i class="fa fa-arrow-right"></i>
                 </a>
-            </div>
-            <div class="col-12">
-                <div id="carouselExampleIndicators2" class="carousel slide" data-ride="" style="width:100%">
-    
-                    <div class="carousel-inner">
-                        <div class="carousel-item active">
+              </div>
+              <div class="col-12">
+                  <div id="carouselExampleIndicators2" class="carousel slide" data-ride="" style="width:100%">
+                      <div class="carousel-inner">
+                          <div class="carousel-item active">
                             <div class="row">
-                              {% for pro in props1 %}
                                 <div class="col-md-4 mb-3">
-                                    <div class="card">
-                                      
+                                    <div class="card"> 
                                         <img class="card-img-top" src="{{pro.photo.url}}" width="400" height="200">
-                                      
                                         <div class="card-body">
                                           <div class="rating">
                                             <span class="fa fa-star checked"></span>
@@ -525,9 +455,8 @@
                                           <label>Price :&nbsp<b>&#x20B9;{{pro.p_price}}</b></label>
                                         </div>
                                         <div class="bottom-text">
-                           
                                             <p><a href="#">See The Location on Map</a><p>
-                                              <table class="table">
+                                              <div class="table">
                                                   <tr class="row">
                                                     <td class="col-sm">
                                                       Floor
@@ -542,116 +471,14 @@
                                                       <p>{{pro.tenants_preffered}}</p>
                                                     </td>
                                                   </tr>
-                                              </table>
+                                              </div>
                                               <button type="button" class="btn btn-secondary btn-sm">More Details</button>
                                         </div>
-                                    </div>
+                                    </div>        
                                 </div>
-                                {% if forloop.counter|divisibleby:3 and forloop.counter > 0 and not forloop.last %}
-                            </div>
-
-                          </div>
-                          <div class="carousel-item">
-                      {% endif %}
-                    {% endfor %}
-                        </div>
-                      </div>    
-
-                        <div class="carousel-item">
-                          <div class="row">
-                            {% for pro2 in props2 %}
-                              <div class="col-md-4 mb-3">
-                                  <div class="card">
-                                      <img class="img-fluid" alt="100%x280" src="{{baseUrl}}/{{pro2.p_img}}">
-                                      <div class="card-body">
-                                        <div class="rating">
-                                          <span class="fa fa-star checked"></span>
-                                          <span class="fa fa-star checked"></span>
-                                          <span class="fa fa-star checked"></span>
-                                          <span class="fa fa-star"></span>
-                                          <span class="fa fa-star"></span>
-                                          <span>(4.4)&nbsp<i onclick="myFunction(this)" class="fa fa-thumbs-up"></i></span>
-                                        </div>
-                                      </div>
-                                      <div class="top-text">
-                                        <div class="name">{{pro2.p_name}} - {{pro2.p_city}}</div>
-                                        <p>{{pro2.p_bhk}}</p>
-                                        <label>Price :&nbsp<b>&#x20B9;{{pro2.p_price}}</b></label>
-                                      </div>
-                                      <div class="bottom-text">
-                         
-                                          <p><a href="#">See The Location on Map</a><p>
-                                            <table class="table">
-                                                <tr class="row">
-                                                  <td class="col-sm">
-                                                    Floor
-                                                    <p>{{pro2.p_floor}}</p>
-                                                  </td>
-                                                  <td class="col-sm">
-                                                    Beds
-                                                    <p>2&3</p>
-                                                  </td>
-                                                  <td class="col-sm">
-                                                    AC
-                                                    <p>0</p>
-                                                  </td>
-                                                </tr>
-                                            </table>
-                                            <button type="button" class="btn btn-secondary btn-sm">More Details</button>
-                                      </div>
-                                  </div>
                               </div>
-                              {% endfor %}
-                          </div>
-                      </div>
-
-                      <div class="carousel-item">
-                        <div class="row">
-                          {% for pro3 in props3 %}
-                            <div class="col-md-4 mb-3">
-                                <div class="card">
-                                    <img class="img-fluid" alt="100%x280" src="{{baseUrl}}/{{pro3.p_img}}">
-                                    <div class="card-body">
-                                      <div class="rating">
-                                        <span class="fa fa-star checked"></span>
-                                        <span class="fa fa-star checked"></span>
-                                        <span class="fa fa-star checked"></span>
-                                        <span class="fa fa-star"></span>
-                                        <span class="fa fa-star"></span>
-                                        <span>(4.4)&nbsp<i onclick="myFunction(this)" class="fa fa-thumbs-up"></i></span>
-                                      </div>
-                                    </div>
-                                    <div class="top-text">
-                                      <div class="name">{{pro3.p_name}} - {{pro3.p_city}}</div>
-                                      <p>{{pro3.p_bhk}}</p>
-                                      <label>Price :&nbsp<b>&#x20B9;{{pro3.p_price}}</b></label>
-                                    </div>
-                                    <div class="bottom-text">
-                       
-                                        <p><a href="#">See The Location on Map</a><p>
-                                          <table class="table">
-                                              <tr class="row">
-                                                <td class="col-sm">
-                                                  Floor
-                                                  <p>{{pro3.p_floor}}</p>
-                                                </td>
-                                                <td class="col-sm">
-                                                  Beds
-                                                  <p>2&3</p>
-                                                </td>
-                                                <td class="col-sm">
-                                                  AC
-                                                  <p>0</p>
-                                                </td>
-                                              </tr>
-                                          </table>
-                                          <button type="button" class="btn btn-secondary btn-sm">More Details</button>
-                                    </div>
-                                </div>
-                            </div>
-                            {% endfor %}
-                        </div>
-                    </div>
+                          </div>    
+                    </div> 
                   </div>
                 </div>
             </div>
