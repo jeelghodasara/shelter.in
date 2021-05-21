@@ -22,7 +22,7 @@
 
     <!-- Vendor CSS-->
     <link href="{% static 'select2/select2.min.css' %}" rel="stylesheet" media="all">
-    <link href="{% static 'vendor/datepicker/daterangepicker.css' %}" rel="stylesheet" media="all">
+    {% comment %} <link href="{% static 'vendor/datepicker/daterangepicker.css' %}" rel="stylesheet" media="all"> {% endcomment %}
 
     <!-- Main CSS-->
     <link href="{% static 'css/addproperty.css' %}" rel="stylesheet" media="all">
@@ -37,7 +37,7 @@
                     <h2 class="title">add property</h2>
                 </div>
                 <div class="card-body">
-                    <form method="POST" action="addproperty" enctype="multipart/form-data">
+                    <form method="POST" action="addproperty" enctype="multipart/form-data" data-cities-url="{% url 'addproperty' %}">
                         {% csrf_token %}
                         <div class="form-row m-b-55">
                             <div class="name">Property</div>
@@ -49,18 +49,28 @@
                                             <label class="label--desc">Property name</label>                                            
                                         </div>
                                     </div>
+                                    <div class="col-2">
+                                            <div class="input-group-desc">
+                                                <div class="rs-select2 js-select-simple select--no-search">
+                                                    <select name="p_country" id="countySel">
+                                                        <option value="" disabled="disabled" selected="selected">Choose option</option>
+                                                        
+                                                    </select>
+                                                    <div class="select-dropdown"></div>
+                                                </div>
+                                                <label class="label--desc">Country</label>
+                                            </div>
+                                        </div>
                                     
                                 </div><br><br><br>
                                 <div class="row row-space">
+                                        
                                         <div class="col-2">
                                             <div class="input-group-desc">
                                                 <div class="rs-select2 js-select-simple select--no-search">
-                                                    <select name="p_state">
-                                                        <option disabled="disabled" selected="selected">Choose option</option>
-                                                        <option>Gujarat</option>
-                                                        <option>Rajasthan</option>
-                                                        <option>Panjab</option>
-                                                        <option>Hariyana</option>
+                                                    <select name="p_state" id="stateSel">
+                                                        <option value="" disabled="disabled" selected="selected">Choose option</option>
+                                                        
                                                     </select>
                                                     <div class="select-dropdown"></div>
                                                 </div>
@@ -70,12 +80,9 @@
                                         <div class="col-2">
                                         <div class="input-group-desc">
                                             <div class="rs-select2 js-select-simple select--no-search">
-                                                <select name="p_city">
+                                                <select name="p_city" id="districtSel">
                                                     <option disabled="disabled" selected="selected">Choose option</option>
-                                                    <option>Rajkot</option>
-                                                    <option>Surat</option>
-                                                    <option>Vadodara</option>
-                                                    <option>Ahamdabad</option>
+                                                    
                                                 </select>
                                                 <div class="select-dropdown"></div>
                                             </div>
@@ -124,13 +131,15 @@
                                             <option>PG</option>
                                             <option>Villas</option>
                                             <option>Hotels</option>
+                                            <option>Hostels</option>
                                             <option>Apartment</option>
-                                            <option>Cottage</option>
+                                            {% comment %} <option>Cottage</option> {% endcomment %}
                                             <option>Glamping</option>
                                             <option>Motels</option>
                                             <option>Guest House</option>
                                             <option>Farm House</option>
-                                            <option>Samaj</option>
+                                            {% comment %} <option>Samaj</option> {% endcomment %}
+                                            <option>Resort</option>
                                         </select>
                                         <div class="select-dropdown"></div>
                                     </div>
@@ -304,24 +313,13 @@
                         <div class="form-row">
                             <div class="value">
                                 <div class="name">Upload<br>Property&nbsp;Images</div>
+                                <br>
                                 <div class="row row-refine">
-                                    {% comment %} {{image_form}} {% endcomment %}
                                     <input type="file" name="Images" id="Image" multiple/>
-                                        {% comment %} <div class="row">
-                                                
-                                                <div class="col-sm-4">
-                                                    <div class="card">
-                                                        {% for x in img %}
-                                                        <img src="{{x.photo.url}}" alt="" class="card-img-top" height="200px">
-                                                        {% endfor %}
-                                                    </div>
-                                                </div>
-                                                
-                                        </div> {% endcomment %}
-                                            
                                 </div>
                                 {% comment %} <button class="btn btn--radius-2 btn--blue" style="margin-top:5%; width: 20%; padding:0;" type="submit">Upload</button>                                 {% endcomment %}
                             </div>
+                            <p style="color:red;margin-left:40%;margin-top:10%;font-weight:700">Upload at list 5 Images**</p>
                         </div>     
             
                         <div>
@@ -337,11 +335,28 @@
     <script src="{% static 'jquery/jquery.min.js' %}"></script>
     <!-- Vendor JS-->
     <script src="{% static 'select2/select2.min.js' %}"></script>
-    <script src="{% static 'vendor/datepicker/moment.min.js' %}"></script>
+    {% comment %} <script src="{% static 'vendor/datepicker/moment.min.js' %}"></script> {% endcomment %}
     <script src="{% static 'datepicker/daterangepicker.js' %}"></script>
+    <script src="{% static 'js/cityfilter.js' %}"></script>
+    <script>
+    var limit = 5;
+    $(document).ready(function(){
+    $('#Image').change(function(){
+                var files = $(this)[0].files;
+                if(files.length > limit && files.length < limit){
+                    alert("You can select exect "+limit+" images.");
+                    $('#Image').val('');
+                    return false;
+                }else{
+                    return true;
+                }
+            });
+        });
+        </script>
 
     <!-- Main JS-->
     <script src="{% static 'js/addproperty.js' %}"></script>
+    
 
 </body>
 

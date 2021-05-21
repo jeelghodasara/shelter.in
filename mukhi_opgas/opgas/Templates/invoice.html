@@ -1,0 +1,495 @@
+{% load static %}
+{% load mathfilters %}
+
+{% load static %}
+{% static "images" as baseUrl %}
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <link href="{% static 'images/lo.png' %}" rel="icon">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Roboto:300,300i,400,400i,500,500i,700,700i&display=swap"
+          rel="stylesheet">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+
+    <!-- Vendor CSS Files -->
+    <link href="{% static 'assets/vendor/animate.css/animate.min.css' %}" rel="stylesheet">
+    <link href="{% static 'assets/vendor/icofont/icofont.min.css' %}" rel="stylesheet">
+    <link href="{% static 'assets/vendor/boxicons/css/boxicons.min.css' %}" rel="stylesheet">
+    <link href="{% static 'assets/vendor/owl.carousel/assets/owl.carousel.min.css' %}" rel="stylesheet">
+    <link href="{% static 'Dashbordforowner/vendor/fontawesome-free/css/all.min.css' %}" rel="stylesheet"
+          type="text/css">
+
+
+    <title>Shelter.in</title>
+    <style>@import url('https://fonts.googleapis.com/css?family=Libre+Franklin:300,400,600,700,800,900&display=swap');
+img#if {
+    height: 384px;
+}body {
+    background-color: #00000021;
+}.bg-white {
+    background-color: #0000000f!important;
+}img#if:hover {
+    transform: scale(1.02);
+}img.card-img-top:hover {
+    transform: scale(1.02);
+}#hero::before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 0;
+    width: 130%;
+    height: 96%;
+    background: #060000;
+    background: linear-gradient(to right, rgb(33 0 0), rgb(0 0 0)), url(../images/whallpaper/m6.jpg) center top no-repeat;
+    z-index: 0;
+    border-radius: 0 0 50% 50%;
+    transform: translateX(-50%) translateY(18px) rotate(
+2deg
+);
+}.bg-dark {
+    background-color: #020202cf!important;
+    color: antiquewhite;
+    color: white;
+}.p-2 {
+    width: 125%;
+    padding: .5rem!important;
+}.p-2 {
+    box-shadow: 0 1px 4px rgb(41 51 57 / 50%);
+    padding: .5rem!important;
+}body{    background-color: #9999994a;
+}
+h1 {
+   font-family: 'Libre Franklin', sans-serif;
+   font-weight: 700;
+}img.card-img-top {
+    height: 210px;
+}
+#hero h2 {
+    text-shadow: #000 34px 0 71px;
+
+}@media (min-width: 1024px)
+#hero p {
+    text-shadow: #000 34px 0 71px;
+    width: 60%;
+}
+.carousel-nav-icon {
+   height: 48px;
+   width: 48px;
+}
+.carousel-item {
+   .col, .col-sm, .col-md {
+      margin: 8px;
+      height: 300px;
+      background-size: cover;
+      background-position: center center;
+   }
+}h2.font-weight {
+    font-family: 'belleza';
+    font-weight: 980;
+}h5#i {
+    font-family: 'belleza';
+    font-size: 50px;
+        text-shadow: #000 1px 0 10px;
+
+}@media (max-width: 768px) {
+    .carousel-inner .carousel-item > div {
+        display: none;
+    }
+    .carousel-inner .carousel-item > div:first-child {
+        display: block;
+    }
+}
+
+.carousel-inner .carousel-item.active,
+.carousel-inner .carousel-item-next,
+.carousel-inner .carousel-item-prev {
+    display: flex;
+}
+
+/* display 3 */
+@media (min-width: 768px) {
+
+    .carousel-inner .carousel-item-right.active,
+    .carousel-inner .carousel-item-next {
+      transform: translateX(33.333%);
+    }
+
+    .carousel-inner .carousel-item-left.active,
+    .carousel-inner .carousel-item-prev {
+      transform: translateX(-33.333%);
+    }
+}
+
+.carousel-inner .carousel-item-right,
+.carousel-inner .carousel-item-left{
+  transform: translateX(0);
+}
+
+
+@media (min-width: 768px)
+.d-md-block {
+    display: block!important;
+    top: 50%;
+}
+
+.img-fluid {
+    max-width: 100%;
+    height: 200px;
+}.img-fluid {
+    max-width: 100%;
+    height: 200px;
+    border-radius: 75%;
+}div#cards {
+    border-radius: 75%;
+    /* border: cadetblue; */
+}.card {
+
+    border-color: #ffffff00;
+}a#a {
+    font-size: 24px;
+    color: black;
+    font-family: 'belleza';
+}.card-body.p-0 {
+    background-color: white;
+}
+
+    </style>
+</head>
+<body >
+
+<header>
+    <nav id="navbar_top" class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <h3 style="color:white;"><img src="{% static 'images/lo.png' %}" alt=width="35px;"
+                                          style="vertical-align: middle; border-style: none;" height="35px;">
+                shelter.in</h3>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main_nav"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="main_nav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item active"><a class="nav-link" href="#"> Home </a></li>
+                    <li class="nav-item"><a class="nav-link" href="#"> Serivces </a></li>
+                    <li class="nav-item"><a class="nav-link" href="#"> Privacy </a></li>
+
+                    {% if user.is_authenticated %}
+                    <div class="dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-expanded="false" style="background:gray;cursor:pointer;border-radius:50px;min-width:120px;max-width:150px;height:45px;">
+                        {% comment %} <img src="{{request.user.profileform.profilepic}}" alt=""> {% endcomment %}
+                        <label style="font-size:15px;font-weight:700">{{request.user.username}}</label>
+                        &nbsp;
+                        {% for ppic in pform %}
+                        {% if ppic.user.id == request.user.id %}
+                        <img class="img-profile rounded-circle" src="{{ppic.profilepic.url}}" width="30" height="30">
+                        {% endif %} 
+                        {% endfor %}
+                        
+                        
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                            <a class="dropdown-item" href="#"><i class="fas fa-user fa-sm fa-fw mr-2"></i>Profile</a>
+                            <a class="dropdown-item" href="http://127.0.0.1:8000/my_booking"><i class="fas fa-book fa-sm fa-fw mr-2"></i>My
+                                Bookings</a>
+                            {% for owner in pform %}
+                            {% if owner.user_id == request.user.id and owner.user_type == "Owner" %}
+                            <a class="dropdown-item" href="/addproperty"><i
+                                    class="fas fa-house-user fa-sm fa-fw mr-2"></i>Add Property</a>
+                            <a class="dropdown-item" href="#"><i class="fas fa-user-edit fa-sm fa-fw mr-2"></i>Manage
+                                Propery</a>
+                            <a class="dropdown-item" href="/OwnerDashbord"><i
+                                    class="fas fa-tachometer-alt fa-sm fa-fw mr-2"></i>Dashboard</a>
+                            <a class="dropdown-item" href="#"><i class="fas fa-cogs fa-sm fa-fw mr-2"></i>Settings</a>
+                            {% endif %}
+                            {% endfor %}
+
+
+                            {% if request.user.username == "JEEL" %}
+                            <a class="dropdown-item" href="#"><i class="fas fa-user-shield fa-sm fa-fw mr-2"></i>Admin
+                                Dashboard</a>
+                            {% endif %}
+
+
+                            <hr>
+                            <div class="text-center">
+                                <button type="button" class="btn btn-dark"><a href="{% url 'logout' %}"
+                                                                              style="text-decoration:none;color: white;">Logout</a>
+                                </button>
+                            </div>
+                            {% comment %} <a class="btn btn-dark" href="{% url 'logout' %}"
+                                             style="background-color: lightcyan;border:1px solid black;border-radius: 15px;text-align: center;">Logout</a>
+                            {% endcomment %}
+                        </div>
+                    </div>
+                    {% else %}
+                    <li class="nav-item"><a class="nav-link" href="{% url 'Register' %}"> Signup/Login </a></li>
+                    {% endif %}
+                </ul>
+            </div> <!-- navbar-collapse.// -->
+        </div> <!-- container.// -->
+         <button class="btn btn-primary hidden-print" onclick="myFunction()"><span class="glyphicon glyphicon-print"
+                                                                                      aria-hidden="true"></span> Print
+            </button>
+    </nav>
+
+
+</header>
+</div>
+
+
+<div id="bo">
+    <STYLE></STYLE>
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <!------ Include the above in your HEAD tag ---------->
+    <br><br><br><br><br>
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="card">
+                    <div class="container" id="box">
+                        <div class="row well">
+
+                            <div class="card-body p-0">
+                                <div class="row p-3" style="  color:#ffffff;  background-color:#343a40;">
+
+                                    <div class="col-md-3">
+                                        <br>
+                                        <h2 style="color:;"> shelter.in</h2>
+                                    </div>
+
+                                    <div class="col-md-8 text-right">
+                                        <br>
+                                        <p class="font-weight-bold mb-1">Invoice #550</p>
+                                        <p class="text" STYLE="COLOR:#ffffff">Due to: {{Due_date}}</p>
+                                    </div>
+                                </div>
+
+                                <hr style="border-top: 1px solid #000000;">
+
+                                <div class="row p-3">
+                                    <div class="col-md-12">
+                                        <table class="table">
+                                            <thead>
+
+                                            </thead>
+                                            <tbody>
+                                            <div class="container">
+                                                <div class="row">
+                                                    <div class="col-sm text-LEFT">
+                                                        <h4>{{p_name}}</h4>
+                                                        <h6 style="color: #0000007a;">{{p_address}}</h6>
+                                                        <h6 style="color: #0000007a;">{{p_state}}</h6>
+                                                        <h6 style="color: #0000007a;">PH:{{phone}}</h6>
+                                                    </div>
+                                                    <div class="col-sm">
+                                                        <h6 style="color: #0000007a;">Check IN</h6>
+                                                        <h3>{{CheckIN}}</h3>
+                                                    </div>
+                                                    <div class="col-sm">
+                                                        <h6 style="color: #0000007a;">Check OUT</h6>
+                                                        <h3>{{CheckOUT}}</h3>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                                <hr style="border-top: 1.5px solid #000000;">
+
+                                <table class="table">
+                                    <thead>
+
+                                    </thead>
+                                    <tbody>
+                                    <div class="container">
+
+                                    </div>
+                                    <div class="container">
+
+                                    </div>
+
+
+                                    <div class="row p-3">
+                                        <div class="col-md-5">
+                                            <div class="row">
+                                                <div class=" text-LEFT">
+                                                    <H5 CLASS=" text-LEFT ML-4" STYLE="color:#7a7a7a;">Guest Name :</H5>
+                                                    <H6 CLASS=" text-LEFT ML-4" STYLE="color:#7a7a7a;">Phone-No :</H6>
+                                                    <H6 CLASS=" text-LEFT ML-4" STYLE="color:#7a7a7a;">People :</H6>
+
+                                                </div>
+                                                <div class="col-sm text-LEFT" STYLE="color:#000000;">
+                                                    <H5 CLASS=" text-LEFT " STYLE="">{{firstName}} {{lastName}}</H5>
+                                                    <H5 CLASS=" text-LEFT " STYLE="">{{tel}}</H5>
+                                                    <H6 CLASS=" text-LEFT ML-4" STYLE="">{{People}}</H6>
+
+
+                                                </div>
+
+                                            </div>
+
+                                        </div>
+
+                                    </div>
+
+                                    </tbody>
+                                </table>
+
+
+                                <hr style="border-top: 2px solid #000000;">
+                                <div class="row p-5">
+                                    <div class="col-md-12">
+                                        <table class="table">
+                                            <thead>
+                                            <tr>
+                                                <th class="border-0 text-uppercase small font-weight-bold text-LEFT">
+                                                    DESCRIPTION
+                                                </th>
+                                                <th class="border-0 text-uppercase small font-weight-bold text-right">
+                                                    RATE
+                                                </th>
+
+                                                <th class="border-0 text-uppercase small font-weight-bold text-right">
+                                                    AMOUNT
+                                                </th>
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+
+                                            <tr>
+                                                <td CLASS=" text-LEFT">{{p_name}} {{p_type}}</td>
+                                                <td CLASS=" text-right">Rs {{t_price|floatformat:4}} x {{days}} Days
+                                                </td>
+                                                <td CLASS=" text-right">Rs {{p_price}}</td>
+                                            </tr>
+                                            <tr>
+                                                <td CLASS=" text-LEFT">DISCOUNT</td>
+                                                <td CLASS=" text-right">10%
+                                                </td>
+                                                <td CLASS=" text-right">- Rs {{p_price|mul:.1|floatformat:1}}</td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+
+
+                                <div class="d-flex flex-row-reverse bg-dark text-white p-4">
+                                    <div class="py-3 px-5 text-right">
+                                        <div class="mb-2">Grand Total</div>
+                                        <div class="h2 font-weight-light">₹{{final_price}}</div>
+                                    </div>
+
+                                    <div class="py-3 px-5 text-right">
+                                        <div class="mb-2">Discount</div>
+                                        <div class="h2 font-weight-light">10%</div>
+                                    </div>
+
+                                    <div class="py-3 px-5 text-right">
+                                        <div class="mb-2">Sub - Total amount</div>
+                                        <div class="h2 font-weight-light">₹{{p_price}}</div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+
+
+
+
+
+        </div>
+    </div>
+
+
+</div>
+
+
+
+
+    <!-- Footer -->
+<!-- Footer -->
+    <!-- Footer -->
+</body>
+
+    <!-- Vendor JS Files -->
+    <script src="{% static 'assets/vendor/jquery/jquery.min.js' %}"></script>
+    <script src="{% static 'assets/vendor/jquery.easing/jquery.easing.min.js' %}"></script>
+    <script src="{% static 'assets/vendor/php-email-form/validate.js' %}"></script>
+    <script src="{% static 'assets/vendor/venobox/venobox.min.js' %}"></script>
+    <script src="{% static 'assets/vendor/waypoints/jquery.waypoints.min.js' %}"></script>
+    <script src="{% static 'assets/vendor/counterup/counterup.min.js' %}"></script>
+    <script src="{% static 'assets/vendor/owl.carousel/owl.carousel.min.js' %}"></script>
+    <script src="{% static 'assets/vendor/isotope-layout/isotope.pkgd.min.js' %}"></script>
+    <script src="{% static 'assets/vendor/aos/aos.js' %}"></script>
+
+    <script src="{% static 'js/main.js' %}"></script>
+    <!-- for crousel -->
+
+    <script>function myFunction() {
+
+
+
+     window.print();
+
+
+}
+    </script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js"
+            integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb"
+            crossorigin="anonymous"></script>
+    <!-- for bottstrap affix -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script> -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+            integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+            crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+            integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+            crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+            integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+            crossorigin="anonymous"></script>
+    <script> {% block js %}{% endblock %}</script>
+    <script>$('#recipeCarousel').carousel({
+  interval: 900
+})
+
+$('.carousel .carousel-item').each(function(){
+    var minPerSlide = 3;
+    var next = $(this).next();
+    if (!next.length) {
+    next = $(this).siblings(':first');
+    }
+    next.children(':first-child').clone().appendTo($(this));
+
+    for (var i=0;i<minPerSlide;i++) {
+        next=next.next();
+        if (!next.length) {
+        	next = $(this).siblings(':first');
+      	}
+
+        next.children(':first-child').clone().appendTo($(this));
+      }
+});
+
+
+    </script>
+
+
+
+</html>

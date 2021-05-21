@@ -9,4 +9,3 @@ class UserRegistration(admin.ModelAdmin):
         list_display=['__all__']
 
 # admin.site.register(User_Registration)
-    

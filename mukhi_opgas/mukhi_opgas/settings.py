@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'opgas','Account',
+    'mathfilters'
 ]
 
 MIDDLEWARE = [
@@ -131,3 +132,4 @@ STATICFILES_DIRS = [
 STATIC_ROOT = os.path.join(BASE_DIR, 'assets')
 MEDIA_URL="/media/"
 MEDIA_ROOT=os.path.join(BASE_DIR, "media/")
+UTHENTICATION_BACKENDS = ['django.contrib.auth.backends.ModelBackend']

@@ -1,0 +1,66 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block head %}
+    <link rel="stylesheet" href="{% static 'css/services.css' %}">
+{% endblock %}
+
+    
+
+{% block body %}
+
+    
+    <div class="our-services">
+
+            <h2>Our Services</h2>
+            <div class="se-cards">
+                <div class="se-card">
+                    <div class="up-image">
+                    <img class="se-img" src="https://images.pexels.com/photos/106399/pexels-photo-106399.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500">
+                    </div>
+                    <h5>Villas</h5>  
+                </div>
+            </div>
+
+            <div class="se-cards">
+                <div class="se-card">
+                    <div class="up-image">
+                    <img class="se-img" src="https://images.pexels.com/photos/106399/pexels-photo-106399.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500">
+                    </div>
+                    <h5>Hotels</h5>  
+                </div>
+            </div>
+
+            <div class="se-cards">
+                <div class="se-card">
+                    <div class="up-image">
+                    <img class="se-img" src="https://images.pexels.com/photos/106399/pexels-photo-106399.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500">
+                    </div>
+                    <h5>Resorts</h5>  
+                </div>
+            </div>
+
+            <div class="se-cards">
+                <div class="se-card">
+                    <div class="up-image">
+                    <img class="se-img" src="https://images.pexels.com/photos/106399/pexels-photo-106399.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500">
+                    </div>
+                    <h5>PG</h5>  
+                </div>
+            </div>
+
+             <div class="slider-controls">
+                <label for="btn-1"></label>
+                <label for="btn-2"></label>
+                <label for="btn-3"></label>
+            </div>
+
+            <input type="radio" name="toggle" id="btn-1" checked>
+            <input type="radio" name="toggle" id="btn-2">
+            <input type="radio" name="toggle" id="btn-3">
+                        
+    </div>
+    
+
+{% endblock %}
+
+

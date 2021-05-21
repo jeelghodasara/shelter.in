@@ -17,8 +17,11 @@ def login(request):
         password=request.POST.get('Password')
         user=auth.authenticate(username=username,password=password)
         if user is not None:
-            auth.login(request, user)
-            return redirect("/")
+            if user.is_authenticated:    
+                auth.login(request, user)
+                return HttpResponseRedirect("/")
+            else:
+                return login(request)
         else:
             messages.error(request,"Please enter correct username and password!!!")
             return redirect("/Register")
@@ -51,20 +54,21 @@ def Register(request):
         if len(un)<3 or len(eml)<5 or len(pwd)<5:
             messages.error(request,"Please input correct data!!")
         elif form.is_valid():
-            user=form.save()
-            user.password=make_password(user.password)
+            user=form.save(commit=False)
             user_type=request.POST.get('u_selection')
             if user_type=="Owner":
                 if len(mno)<10:
-                    messages.error(request,"Please enter mobile number must be 10 charactor!!")
+                    messages.error(request,"Please enter mobile number must be 10 numbers!!")
                     return redirect('Register')
                 else:
+                    user.password=make_password(user.password)
                     user.save()
                     data=User_Registration(user_type=user_type,mobile_no=mno,user=user)
                     data.save()
                     auth.login(request,user)
                     return redirect('/')
             elif user_type=="Guest":
+                user.password=make_password(user.password)
                 user.save()
                 data=User_Registration(user_type=user_type,mobile_no=None,user=user)
                 data.save()
@@ -73,7 +77,7 @@ def Register(request):
             else:
                 messages.error(request,"Enter correct data!! ")
         else:
-            messages.error("Invalid form!!")
+            messages.error(request,"Invalid form!!")
         
 
         context={"form":profileform,'mainform':form}

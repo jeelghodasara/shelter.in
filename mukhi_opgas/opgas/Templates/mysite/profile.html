@@ -1,0 +1,196 @@
+{% load static %}
+<html>
+<head>
+<title>Profile</title>
+<link rel="stylesheet" href="{% static 'css/profile.css' %}">
+<link rel="stylesheet" href={% static 'css/bootstrap.min.css' %}>
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+</head>
+<body>
+<form action="{% url 'Profile' %}" method="POST" enctype="multipart/form-data">
+{% csrf_token %}
+<div class="container">
+<div class="row gutters">
+<div class="col-xl-3 col-lg-3 col-md-12 col-sm-12 col-12">
+<div class="card h-100">
+	<div class="card-body">
+		<div class="account-settings">
+			<div class="user-profile">
+				
+					<div class="avatar-wrapper">
+					{% comment %} {% static 'Dashbordforowner/img/undraw_profile.svg' %} {% endcomment %}
+					{% comment %} <div class="user-avatar"> {% endcomment %}
+					{% comment %} <img class="profile-pic" src="" /> {% endcomment %}
+					
+					{% for ppic in profileform %}
+					{% if ppic.user_id == request.user.id and ppic.profilepic%}
+					<img class="profile-pic" src="{{ppic.profilepic.url}}" alt="Maxwell Admin" name="profile_pic">
+					{% comment %} {{ppic.profilepic}} {% endcomment %}
+					{% comment %} {% else %}
+					<img class="profile-pic" src="{{ppic.profilepic.url}}" alt="Maxwell Admin"> {% endcomment %}
+					{% endif %}
+					{% endfor %}
+					<div class="upload-button">
+						<i class="fa fa-circle-up" aria-hidden="true"></i>
+						
+					</div>
+						<input class="file-upload" type="file" accept="image/*" name="profile_pic"/>
+					{% comment %} </div> {% endcomment %}
+					</div>
+					{% comment %} <img src="{% static 'Dashbordforowner/img/undraw_profile.svg' %}" alt="Maxwell Admin"><br> {% endcomment %}
+					
+					{% comment %} <input type="file" name="userprofile_pic" class="uppic"> {% endcomment %}
+				
+				<h5 class="user-name">{{request.user.first_name}} {{request.user.last_name}}</h5>
+				<h6 class="user-email">{{request.user.email}}</h6>
+			</div>
+		</div>
+	</div>
+</div>
+</div>
+<div class="col-xl-9 col-lg-9 col-md-12 col-sm-12 col-12">
+<div class="card h-100">
+	<div class="card-body">
+		<div class="row gutters">
+			<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+				<h6 class="mb-2 text-primary">Personal Details</h6>
+			</div>
+			<div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+				<div class="form-group">
+					<label for="Firstname">First Name</label>
+				
+					{% if request.user.first_name %}
+					<input type="text" class="form-control" id="firstname" placeholder="Enter First Name" name="first_name" value="{{request.user.first_name}}">
+					{% else %}
+					{{pform1.first_name}}
+					{% endif %}	
+                    
+				</div>
+			</div>
+            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+				<div class="form-group">
+					<label for="Lastname">Last Name</label>
+					
+                    {% if request.user.last_name %}
+					<input type="text" class="form-control" id="lastname" placeholder="Enter First Name" name="last_name" value="{{request.user.last_name}}">
+					{% else %}
+					{{pform1.last_name}}
+					{% endif %}
+				</div>
+			</div>
+			<div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+				<div class="form-group">
+					<label for="eMail">Email</label>
+					<input type="email" class="form-control" id="eMail" value="{{request.user.email}}" readonly>
+				</div>
+			</div>
+			<div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+				<div class="form-group">
+					<label for="phone">Phone</label>
+                    {% for i in profileform %}
+                        {% if i.user_id == request.user.id %}
+					    <input type="text" class="form-control" id="phone" value="{{i.mobile_no}}" name="mobileno">
+                        {% endif %}
+                    {% endfor %}
+                </div>
+			</div>
+		</div>
+		<div class="row gutters">
+			<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+				<h6 class="mt-3 mb-2 text-primary">Address</h6>
+			</div>
+			<div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+				<div class="form-group">
+					<label for="Street">Your Address</label>
+					{% if user.address %}
+					<input type="name" class="form-control" id="Street" placeholder="Enter Your Address" name="address" value="{{user.address}}">
+					{% else %}
+					{{pform2.address}}
+					{% endif %}
+					
+					{% comment %} <input type="name" class="form-control" id="Street" placeholder="Enter Your Address" name="address"> {% endcomment %}
+				</div>
+			</div>
+			<div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+				<div class="form-group">
+					<label for="ciTy">City</label>
+					{% if user.city %}
+					<input type="name" class="form-control" id="ciTy" placeholder="Enter City" name="city" value="{{user.city}}">
+					{% else %}
+					{{pform2.city}}
+					{% endif %}
+					{% comment %} <input type="name" class="form-control" id="ciTy" placeholder="Enter City" name="city"> {% endcomment %}
+				</div>
+			</div>
+			<div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+				<div class="form-group">
+					<label for="sTate">State</label>
+					{% if user.state %}
+					<input type="text" class="form-control" id="sTate" placeholder="Enter State" name="state" value={{user.state}}>
+					{% else %}
+					{{pform2.state}}
+					{% endif %}
+					{% comment %} <input type="text" class="form-control" id="sTate" placeholder="Enter State" name="state"> {% endcomment %}
+				</div>
+			</div>
+			{% comment %} <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+				<div class="form-group">
+					<label for="zIp">Zip Code</label>
+					<input type="text" class="form-control" id="zIp" placeholder="Zip Code">
+				</div>
+			</div> {% endcomment %}
+		</div>
+		<div class="row gutters">
+			<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+				<div class="text-right">
+					{% comment %} <button type="submit" id="submit" name="cancle" class="btn btn-secondary"><a href="{% url 'pgindex' %}">Cancel</a></button> {% endcomment %}
+					<a class="btn btn-secondary" href="{% url 'pgindex' %}">Cancel</a>
+					<button type="submit" id="submit" name="submit" class="btn btn-primary">Update</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	{% if messages %}
+  	<div class="row">
+  	<div class="col-sm-6 col-sm-offset-3">
+      {% for message in messages %}
+      <div class="alert alert-{{ message.tags }}" role="alert">
+          <p>{{ message }}</p>
+      </div>
+      {% endfor %}
+    </div>
+
+  	</div>
+	{% endif %}
+</div>
+</div>
+</div>
+</div>
+</form>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script>
+$(document).ready(function() {
+	
+    var readURL = function(input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+
+            reader.onload = function (e) {
+                $('.profile-pic').attr('src', e.target.result);
+            }
+    
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+   
+    $(".file-upload").on('change', function(){
+        readURL(this);
+    });
+    
+    $(".upload-button").on('click', function() {
+       $(".file-upload").click();
+    });
+});
+</script>
+</body>
+</html>

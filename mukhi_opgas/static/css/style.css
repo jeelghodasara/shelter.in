@@ -145,8 +145,7 @@ color:white;
   top: 0;
   width: 130%;
   height: 95%;
-  background: linear-gradient(to right, rgba(30, 67, 86, 0.8), rgba(30, 67, 86, 0.6)), url("../images/whallpaper/m6.jpg") center top no-repeat;
-  z-index: 0;
+  background: linear-gradient(to right, rgb(33 0 0 / 15%), rgb(0 0 0 / 60%)), url(../images/whallpaper/m6.jpg) center no-repeat;  z-index: 0;
   border-radius: 0 0 50% 50%;
   transform: translateX(-50%) rotate(0deg);
 }
@@ -158,9 +157,8 @@ color:white;
   top: 0;
   width: 130%;
   height: 96%;
-  background: #68A4C4;
-  opacity: 0.3;
-  z-index: 0;
+  background: #000000;
+background: linear-gradient(to right, rgb(33 0 0 / 15%), rgb(0 0 0 / 60%)), url(../images/whallpaper/m6.jpg) center top no-repeat;  z-index: 0;
   border-radius: 0 0 50% 50%;
   transform: translateX(-50%) translateY(18px) rotate(2deg);
 }

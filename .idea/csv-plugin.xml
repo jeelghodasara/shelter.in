@@ -3,6 +3,20 @@
   <component name="CsvFileAttributes">
     <option name="attributeMap">
       <map>
+        <entry key="\mukhi_opgas\opgas\Templates\invoice.html">
+          <value>
+            <Attribute>
+              <option name="separator" value=":" />
+            </Attribute>
+          </value>
+        </entry>
+        <entry key="\mukhi_opgas\opgas\Templates\mysite\Owner_dashbord.html">
+          <value>
+            <Attribute>
+              <option name="separator" value="," />
+            </Attribute>
+          </value>
+        </entry>
         <entry key="\mukhi_opgas\opgas\Templates\pgindex.html">
           <value>
             <Attribute>

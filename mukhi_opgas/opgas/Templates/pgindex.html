@@ -1,745 +1,859 @@
 {% load static %}
 {% static "images" as baseUrl %}
 <html>
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        <link rel="stylesheet" href="{% static 'css/style.css' %}">
-        <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
-        <link href="{% static 'images/lo.png' %}" rel="icon">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <link href="{% static 'images/lo.png' %}" rel="icon">
 
-        <!-- Google Fonts -->
-        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Roboto:300,300i,400,400i,500,500i,700,700i&display=swap" rel="stylesheet">
-        <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Roboto:300,300i,400,400i,500,500i,700,700i&display=swap"
+          rel="stylesheet">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
 
-        <!-- Vendor CSS Files -->
-        <link href="{% static 'assets/vendor/animate.css/animate.min.css' %}" rel="stylesheet">
-        <link href="{% static 'assets/vendor/icofont/icofont.min.css' %}" rel="stylesheet">
-        <link href="{% static 'assets/vendor/boxicons/css/boxicons.min.css' %}" rel="stylesheet">
-        <link href="{% static 'assets/vendor/owl.carousel/assets/owl.carousel.min.css' %}" rel="stylesheet">
-        <link href="{% static 'Dashbordforowner/vendor/fontawesome-free/css/all.min.css' %}" rel="stylesheet" type="text/css">
-      
+    <!-- Vendor CSS Files -->
+    <link href="{% static 'assets/vendor/animate.css/animate.min.css' %}" rel="stylesheet">
+    <link href="{% static 'assets/vendor/icofont/icofont.min.css' %}" rel="stylesheet">
+    <link href="{% static 'assets/vendor/boxicons/css/boxicons.min.css' %}" rel="stylesheet">
+    <link href="{% static 'assets/vendor/owl.carousel/assets/owl.carousel.min.css' %}" rel="stylesheet">
+    <link href="{% static 'Dashbordforowner/vendor/fontawesome-free/css/all.min.css' %}" rel="stylesheet"
+          type="text/css">
 
-        <title>Shelter.in</title>
 
-    </head>
-    <body>
+    <title>Shelter.in</title>
+    <style>
+@import url('https://fonts.googleapis.com/css?family=Libre+Franklin:300,400,600,700,800,900&display=swap');
+img#if {
+    height: 384px;
+}img#if:hover {
+    transform: scale(1.02);
+}img.card-img-top:hover {
+    transform: scale(1.02);
+}#hero::before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 0;
+    width: 130%;
+    height: 96%;
+    background: #060000;
+background: linear-gradient(to right, rgb(33 0 0 / 15%), rgb(0 0 0 / 60%)), url(../images/whallpaper/m6.jpg) 100px,100px top no-repeat;    z-index: 0;
+    border-radius: 0 0 50% 50%;
+    transform: translateX(-50%) translateY(18px) rotate(
+2deg
+);
+}.bg-dark {
+    background-color: #020202cf!important;
+    color: antiquewhite;
+    color: white;
+}
+h1 {
+   font-family: 'Libre Franklin', sans-serif;
+   font-weight: 700;
+}img.card-img-top {
+    height: 210px;
+}
+#hero h2 {
+    text-shadow: #000 34px 0 71px;
 
-    <header>
-        <nav id="navbar_top" class="navbar navbar-expand-lg navbar-dark bg-dark">
-            <div class="container">
-                <h3 style="color:white;"><img src="{% static 'images/lo.png' %}" alt=width="35px;" height="35px;"> shelter.in</h3>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main_nav"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="main_nav">
-                    <ul class="navbar-nav ml-auto">
-                        <li class="nav-item active"><a class="nav-link" href="#"> Home </a></li>
-                        <li class="nav-item"><a class="nav-link" href="#"> Serivces </a></li>
-                        <li class="nav-item"><a class="nav-link" href="#"> Privacy </a></li>
+}@media (min-width: 1024px)
+#hero p {
+    text-shadow: #000 34px 0 71px;
+    width: 60%;
+}
+.carousel-nav-icon {
+   height: 48px;
+   width: 48px;
+}
+.carousel-item {
+   .col, .col-sm, .col-md {
+      margin: 8px;
+      height: 300px;
+      background-size: cover;
+      background-position: center center;
+   }
+}h2.font-weight {
+    font-family: 'belleza';
+    font-weight: 980;
+}h5#i {
+    font-family: 'belleza';
+    font-size: 50px;
+        text-shadow: #000 1px 0 10px;
+
+}@media (max-width: 768px) {
+    .carousel-inner .carousel-item > div {
+        display: none;
+    }
+    .carousel-inner .carousel-item > div:first-child {
+        display: block;
+    }
+}
+
+.carousel-inner .carousel-item.active,
+.carousel-inner .carousel-item-next,
+.carousel-inner .carousel-item-prev {
+    display: flex;
+}
+
+/* display 3 */
+@media (min-width: 768px) {
+
+    .carousel-inner .carousel-item-right.active,
+    .carousel-inner .carousel-item-next {
+      transform: translateX(33.333%);
+    }
+
+    .carousel-inner .carousel-item-left.active,
+    .carousel-inner .carousel-item-prev {
+      transform: translateX(-33.333%);
+    }
+}
+
+.carousel-inner .carousel-item-right,
+.carousel-inner .carousel-item-left{
+  transform: translateX(0);
+}
+
+
+@media (min-width: 768px)
+.d-md-block {
+    display: block!important;
+    top: 50%;
+}
+
+.img-fluid {
+    max-width: 100%;
+    height: 200px;
+}.img-fluid {
+    max-width: 100%;
+    height: 200px;
+    border-radius: 75%;
+}div#cards {
+    border-radius: 75%;
+    /* border: cadetblue; */
+}.card {
+
+    border-color: #ffffff00;
+}a#b {
+    font-size: 24px;
+    color: black;
+    font-family: 'belleza';
+}a#a {
+    font-size: 24px;
+    color: black;
+    font-family: 'belleza';
+}
+a#a {
+    padding-left: 1%;
+    padding-right: 1%;
+    padding-top: 5px;#hero::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 0;
+    width: 130%;
+    height: 95%;
+    background: linear-gradient(to right, rgb(33 0 0 / 15%), rgb(0 0 0 / 60%)), url(../images/whallpaper/m6.jpg) 100px,top no-repeat;
+    z-index: 0;
+    border-radius: 0 0 50% 50%;
+    transform: translateX(-50%) rotate(
+0deg
+);
+}
+    padding-bottom: 5px;
+    letter-spacing: 2px;
+         background: #323232e0;
+
+
+        color: white;
+    border-radius: 30px;
+    font-size: smaller;
+    position: relative;
+    text-transform: uppercase;
+
+}a#a:hover {
+    color: black;
+    cursor: pointer;
+    background: white;
+}
+.col-2 {
+    text-align: center;
+
+}
+.col-10 {
+    text-align: center;
+
+}.filters .filterbutton {
+    background: #323232;
+
+}
+    </style>
+</head>
+<body>
+
+<header>
+    <nav id="navbar_top" class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <h3 style="color:white;"><img src="{% static 'images/lo.png' %}" width="35px;" height="35px;">
+                shelter.in</h3>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main_nav"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="main_nav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item active"><a class="nav-link" href="{% url 'pgindex' %}"> Home </a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'Services' %}"> Services </a></li>
+                    <li class="nav-item"><a class="nav-link" href="#"> Privacy </a></li>
+
+
+                    {% if user.is_authenticated %}
+                    <div class="dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-expanded="false" style="background:gray;cursor:pointer;border-radius:50px;min-width:120px;max-width:150px;height:45px;">
+                        {% comment %} <img src="{{request.user.profileform.profilepic}}" alt=""> {% endcomment %}
+                        <label style="font-size:15px;font-weight:700">{{request.user.username}}</label>
+                        &nbsp;
+                        {% for ppic in pform %}
+                        {% if ppic.user.id == request.user.id %}
+                        <img class="img-profile rounded-circle" src="{{ppic.profilepic.url}}" width="30" height="30">
+                        {% endif %} 
+                        {% endfor %}
                         
-                        {% if user.is_authenticated %}
-                        <div class="dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-                               data-toggle="dropdown" aria-expanded="false"><img src="{% static 'images/user.png' %}"
-                                                                                 alt="">
-                                {{request.user.username}}
-                            </a>
-                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                <a class="dropdown-item" href="#"><i class="fas fa-user fa-sm fa-fw mr-2"></i>Profile</a>
-                                <a class="dropdown-item" href="#"><i class="fas fa-book fa-sm fa-fw mr-2"></i>My Bookings</a>
-                                {% for owner in form2 %}
-                                {% if owner.user_id == request.user.id and owner.user_type == "Owner" %}
-                                <a class="dropdown-item" href="/addproperty"><i class="fas fa-house-user fa-sm fa-fw mr-2"></i>Add Property</a>
-                                <a class="dropdown-item" href="#"><i class="fas fa-user-edit fa-sm fa-fw mr-2"></i>Manage Propery</a>
-                                <a class="dropdown-item" href="/OwnerDashbord"><i class="fas fa-tachometer-alt fa-sm fa-fw mr-2"></i>Dashboard</a>
-                                <a class="dropdown-item" href="#"><i class="fas fa-cogs fa-sm fa-fw mr-2"></i>Settings</a>
-                                {% endif %}
-                                {% endfor %}
-                                
-                                
-                                {% if request.user.username == "JEEL" %}
-                                <a class="dropdown-item" href="#"><i class="fas fa-user-shield fa-sm fa-fw mr-2"></i>Admin Dashboard</a>
-                                {% endif %}
-                                
-    
-                                <hr>
-                                <div class="text-center">
-                                <button type="button"  class="btn btn-dark"><a href="{% url 'logout' %}" style="text-decoration:none;color: white;">Logout</a></button>
-                                </div>       
-                                {% comment %} <a class="btn btn-dark" href="{% url 'logout' %}"
-                                  style="background-color: lightcyan;border:1px solid black;border-radius: 15px;text-align: center;">Logout</a> {% endcomment %}
+                        
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                            <a class="dropdown-item" href="{% url 'Profile' %}"><i class="fas fa-user fa-sm fa-fw mr-2"></i>Profile</a>
+                            <a class="dropdown-item" href="{% url 'my_booking' %}"><i class="fas fa-book fa-sm fa-fw mr-2"></i>My Bookings</a>
+                            {% for owner in form2 %}
+                            {% if owner.user_id == request.user.id and owner.user_type == "Owner" %}
+                            <a class="dropdown-item" href="/addproperty"><i class="fas fa-house-user fa-sm fa-fw mr-2"></i>Add Property</a>
+                            <a class="dropdown-item" href="#"><i class="fas fa-user-edit fa-sm fa-fw mr-2"></i>Manage Propery</a>
+                            <a class="dropdown-item" href="/OwnerDashbord"><i
+                                    class="fas fa-tachometer-alt fa-sm fa-fw mr-2"></i>Dashboard</a>
+                            <a class="dropdown-item" href="#"><i class="fas fa-cogs fa-sm fa-fw mr-2"></i>Settings</a>
+                            {% endif %}
+                            {% endfor %}
+
+
+                            {% if request.user.username == "JEEL" %}
+                            <a class="dropdown-item" href="{% url 'admindashbord' %}"><i class="fas fa-user-shield fa-sm fa-fw mr-2"></i>Admin
+                                Dashboard</a>
+                            {% endif %}
+
+
+                            <hr>
+                            <div class="text-center">
+                                <button type="button" class="btn btn-dark"><a href="{% url 'logout' %}"
+                                                                              style="text-decoration:none;color: white;">Logout</a>
+                                </button>
                             </div>
+                            {% comment %} <a class="btn btn-dark" href="{% url 'logout' %}"
+                                             style="background-color: lightcyan;border:1px solid black;border-radius: 15px;text-align: center;">Logout</a>
+                            {% endcomment %}
                         </div>
-                        {% else %}
-                              <li class="nav-item"><a class="nav-link" href="{% url 'Register' %}"> Signup/Login </a></li>
-                        {% endif %}
-                    </ul>
-                </div> <!-- navbar-collapse.// -->
-            </div> <!-- container.// -->
-        </nav>
-    </header>
+                    </div>
+                    {% else %}
+                    <li class="nav-item"><a class="nav-link" href="{% url 'Register' %}"> Signup/Login </a></li>
+                    {% endif %}
+                </ul>
+            </div> <!-- navbar-collapse.// -->
+        </div> <!-- container.// -->
+    </nav>
+</header>
+
+<div class="filters my-2 my-sm-0" id="filterid" style="margin-top:0;background:#68A6">
+
+<div class="row">
+    <div class="col-2">
+        <button class="filterbutton" onclick="togNav()">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-funnel-fill"
+                 viewBox="0 0 16 16">
+                <path d="M1.5 1.5A.5.5 0 0 1 2 1h12a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-.128.334L10 8.692V13.5a.5.5 0 0 1-.342.474l-3 1A.5.5 0 0 1 6 14.5V8.692L1.628 3.834A.5.5 0 0 1 1.5 3.5v-2z"/>
+            </svg>
+            Filter
+        </button>
+    </div>
+  <div class="col-10 " >
+    <a href="http://127.0.0.1:8000/plistpage/Villas" id="a"><label>Villas</label></a>
+    <a href="http://127.0.0.1:8000/plistpage/Hotels" id="a"><label>Hotels</label></a>
+    <a href="http://127.0.0.1:8000/plistpage/PG" id="a"><label>PG</label></a>
+    <a href="http://127.0.0.1:8000/plistpage/Hostels" id="a"><label>Hostel</label></a>
+    <a href="http://127.0.0.1:8000/plistpage/Resort" id="a"><label>Resort</label></a>
+    <a href="http://127.0.0.1:8000/plistpage/Apartment" id="a"><label>Apartment</label></a>
+    <a href="http://127.0.0.1:8000/plistpage/Guest House" id="a"><label>Guest Houses</label></a>
+    <a href="http://127.0.0.1:8000/plistpage/Farm House" id="a"><label>Farm House</label></a>
+   
+  </div>
+</div>
+
+</div>
+
+</div>
+
+<div class="sidebar" id="sidebarid">
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-{% comment %} <div class="pos-f-t"> {% endcomment %}
-  {% comment %} <nav class="navbar"> {% endcomment %}
-
-    {% comment %} <button class="navbar bg-secondary" type="button" onclick="togNav()" data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation"> {% endcomment %}
-      {% comment %} <span class="navbar-toggler-icon"></span> {% endcomment %}
-      {% comment %} <a style="color:white;">Apply Filters</a> {% endcomment %}
-    {% comment %} </button> {% endcomment %}
-          <div class="filters" id="filterid" style="margin-top:0;background:#68A6">
-          <button class="filterbutton" onclick="togNav()">Filters</button>
-          <input type="text" placeholder="Search">
-          <button class="search-btn"><img src="{% static 'images/search.png' %}" alt=""></button>
-        
-        
-
-      {% comment %} <div class="filter" onclick="togNav()" style="color:back;cursor:pointer;blackground:red;">Filters
-      <input class="text" ><button class="search-btn"></button>
-      </div> {% endcomment %}
-      
-           <a href="#"><label>Villas</label></a>
-           <a href="#"><label>Hotels</label></a>
-           <a href="#"><label>PG</label></a>
-           <a href="#"><label>Hostel</label></a>
-           <a href="#"><label>Resorts</label></a>
-           <a href="#"><label>Apartments</label></a>
-           <a href="#"><label>Guest&nbspHouses</label></a>
-           <a href="#"><label>Farm&nbspHouse</label></a>
-           
-           
-           </div>
-<!--           <a href="#"><label>Samaj</label></a>-->
-
-<!--    <form class="d-flex">-->
-<!--      <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">-->
-<!--      <button class="btn btn-outline-success" type="submit">Search</button>-->
-<!--    </form>-->
-
-  {% comment %} </nav> {% endcomment %}
-{% comment %} </div> {% endcomment %}
-
-
-<!--          <i class="fa fa-bars"></i>-->
-<!--          <input type="text" placeholder="Search">-->
-<!--          <button class="search-btn"><img src="{% static 'images/search.png' %}" alt=""></button>-->
-
-      </div>
-
-      <div class="sidebar" id="sidebarid">
-          {% comment %} <div class="dropdown">
-          <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Dropdown link
-          </a>
-
-            <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-              <a class="dropdown-item" href="#">Action</a>
-              <a class="dropdown-item" href="#">Another action</a>
-              <a class="dropdown-item" href="#">Something else here</a>
-            </div>
-          </div> {% endcomment %}
-          
-        <li class="nav-item dropdown dropright" style="list-style: none;">
-          <a class="nav-link dropdown-toggle" href="#" id="dropdownMenuLink" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
-          State
-          </a>
-          <div class="dropdown-menu" aria-labelledby="dropdownMenuLink" id="fi_search">
+    <li class="nav-item dropdown dropright" style="list-style: none;">
+        <a class="nav-link dropdown-toggle" href="#" id="dropdownMenuLink" data-toggle="dropdown" href="#" role="button"
+           aria-haspopup="true" aria-expanded="false">
+            State
+        </a>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuLink" id="fi_search">
             <input type="text" id="mySearch" placeholder="Search.." title="Type in a category" class="dropdown-item">
-            <a class="dropdown-item" href="#">Gujarat</a>
-            <a class="dropdown-item" href="#">Rajasthan</a>
-            <a class="dropdown-item" href="#">Hariyana</a>
-            <a class="dropdown-item" href="#">Panjab</a>
-            <a class="dropdown-item" href="#">Rajasthan</a>
-            <a class="dropdown-item" href="#">Utterpradesh</a>
-            <a class="dropdown-item" href="#">Jammu&Kasmir</a>
-            <a class="dropdown-item" href="#">Uttarakhand</a>
-            <a class="dropdown-item" href="#">Bihar</a>
-            <a class="dropdown-item" href="#">Kerela</a>
-          </div>
-        </li>
-        <li class="nav-item dropdown dropright" style="list-style: none;">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-display="static" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          BHK
-          </a>
-          <div class="dropdown-menu" aria-labelledby="navbarDropdown" id="fi_search">
+            <a class="dropdown-item" href="http://127.0.0.1:8000/plistpagestate/Gujarat (GJ)">Gujarat</a>
+            <a class="dropdown-item" href="http://127.0.0.1:8000/plistpagestate/Rajasthan">Rajasthan</a>
+            <a class="dropdown-item" href="http://127.0.0.1:8000/plistpagestate/Hariyana">Hariyana</a>
+            <a class="dropdown-item" href="http://127.0.0.1:8000/plistpagestate/Panjab">Panjab</a>
+            <a class="dropdown-item" href="http://127.0.0.1:8000/plistpagestate/Rajasthan">Rajasthan</a>
+            <a class="dropdown-item" href="http://127.0.0.1:8000/plistpagestate/Utterpradesh">Utterpradesh</a>
+            <a class="dropdown-item" href="http://127.0.0.1:8000/plistpagestate/Jammu&Kasmir">Jammu&Kasmir</a>
+            <a class="dropdown-item" href="http://127.0.0.1:8000/plistpagestate/Uttarakhand">Uttarakhand</a>
+            <a class="dropdown-item" href="http://127.0.0.1:8000/plistpagestate/Bihar">Bihar</a>
+            <a class="dropdown-item" href="http://127.0.0.1:8000/plistpagestate/Kerela">Kerela</a>
+        </div>
+    </li>
 
-            <a class="dropdown-item" href="#">1 BHK</a>
-            <a class="dropdown-item" href="#">2 BHK</a>
-            <a class="dropdown-item" href="#">3 BHK</a>
-            <a class="dropdown-item" href="#">4 BHK</a>
-            <a class="dropdown-item" href="#">5 BHK</a>
-            <a class="dropdown-item" href="#">6&MORE</a>
-          </div>
-        </li>
-        <li class="nav-item dropdown dropright" style="list-style: none;">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-display="static" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Price
-          </a>
-          <div class="dropdown-menu" aria-labelledby="navbarDropdown" id="fi_search">
+    <li class="nav-item dropdown dropright" style="list-style: none;">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-display="static"
+           data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Price
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown" id="fi_search">
 
-            <a class="dropdown-item" href="#">upto 2000</a>
-            <a class="dropdown-item" href="#">upto 5000</a>
-            <a class="dropdown-item" href="#">upto 8000</a>
-            <a class="dropdown-item" href="#">upto 10000</a>
-            <a class="dropdown-item" href="#">upto 15000</a>
-            <a class="dropdown-item" href="#">upto 20000</a>
-            <a class="dropdown-item" href="#">upto 25000</a>
-            <a class="dropdown-item" href="#">25000 & More</a>
-          </div>
-        </li>
-        <li class="nav-item dropdown dropright" style="list-style: none;">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-display="static" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Floor
-          </a>
-          <div class="dropdown-menu" aria-labelledby="navbarDropdown" id="fi_search">
+            <a class="dropdown-item" href="http://127.0.0.1:8000/plistpageprice/upto2000">upto 2000</a>
+            <a class="dropdown-item" href="http://127.0.0.1:8000/plistpageprice/upto5000">upto 5000</a>
+            <a class="dropdown-item" href="http://127.0.0.1:8000/plistpageprice/upto8000">upto 8000</a>
+            <a class="dropdown-item" href="http://127.0.0.1:8000/plistpageprice/upto10000">upto 10000</a>
+            <a class="dropdown-item" href="http://127.0.0.1:8000/plistpageprice/upto15000">upto 15000</a>
+            <a class="dropdown-item" href="http://127.0.0.1:8000/plistpageprice/upto20000">upto 20000</a>
+            <a class="dropdown-item" href="http://127.0.0.1:8000/plistpageprice/upto25000">upto 25000</a>
+            <a class="dropdown-item" href="http://127.0.0.1:8000/plistpageprice/25000&More">25000 & More</a>
+        </div>
+    </li>
+    <li class="nav-item dropdown dropright" style="list-style: none;">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-display="static"
+           data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Properties
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown" id="fi_search">
+           <a class="dropdown-item" href="http://127.0.0.1:8000/plistpage/Villas">Villas</a>
+            <a class="dropdown-item" href="http://127.0.0.1:8000/plistpage/Hotels">Hotels</a>
+            <a class="dropdown-item"  href="http://127.0.0.1:8000/plistpage/PG">PG</a>
+            <a class="dropdown-item" href="http://127.0.0.1:8000/plistpage/Hostels">Hostel</a>
+            <a class="dropdown-item" href="http://127.0.0.1:8000/plistpage/Resort">Resorts</a>
+            <a class="dropdown-item" href="http://127.0.0.1:8000/plistpage/Apartment">Apartments</a>
+            <a class="dropdown-item" href="http://127.0.0.1:8000/plistpage/Guest House">Guest&nbspHouses</a>
+            <a class="dropdown-item" href="http://127.0.0.1:8000/plistpage/Farm House">Farm&nbspHouse</a>
+          
 
-            <a class="dropdown-item" href="#">1st&nbsp-&nbsp4th</a>
-            <a class="dropdown-item" href="#">5th&nbsp-&nbsp10th</a>
-            <a class="dropdown-item" href="#">15st&nbsp-&nbsp20th</a>
-            <a class="dropdown-item" href="#">20st&nbsp-&nbsp25th</a>
-            <a class="dropdown-item" href="#">above &nbsp25th</a>
-
-          </div>
-        </li>
-        <li class="nav-item dropdown dropright" style="list-style: none;">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-display="static" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Amenities
-          </a>
-          <div class="dropdown-menu" aria-labelledby="navbarDropdown" id="fi_search">
-
-            <a class="dropdown-item" href="#">Vastu&nbsp;complient</a>
-            <a class="dropdown-item" href="#">Air&nbspconditioned</a>
-            <a class="dropdown-item" href="#">Power&nbspBack&nbspUp</a>
-            <a class="dropdown-item" href="#">Lieft</a>
-
-          </div>
-        </li>
-        <li class="nav-item dropdown dropright" style="list-style: none;">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-display="static" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Properties
-          </a>
-          <div class="dropdown-menu" aria-labelledby="navbarDropdown" id="fi_search">
-            <a class="dropdown-item" href="#">Hostiles</a>
-            <a class="dropdown-item" href="#">Hotels</a>
-            <a class="dropdown-item" href="#">Girls&nbspHostiles</a>
-            <a class="dropdown-item" href="#">Villas</a>
-            <a class="dropdown-item" href="#">Samaj</a>
-            <a class="dropdown-item" href="#">Guest&nbspHouse</a>
-            <a class="dropdown-item" href="#">Rooms</a>
-            <a class="dropdown-item" href="#">Boys&nbspHostiles</a>
-          </div>
-        </li>
+        </div>
+    </li>
 
 
-      </div>
+</div>
 
-      <!-- Page content -->
-      <div class="content">
+<!-- Page content -->
+<div class="content">
 
-      </div>
-
-
+</div>
 
 
-
-
-
-
-
-
-
-
-    <section id="hero" class="d-flex justify-cntent-center align-items-center">
+<section id="hero" class="d-flex justify-cntent-center align-items-center">
 
 
     <div id="heroCarousel" class="container carousel carousel-fade" data-ride="carousel">
 
 
-      <!-- Slide 1 -->
-      <div class="carousel-item active">
-        <div class="carousel-container">
-          <h2 class="animate__animated animate__fadeInDown">Welcome to <span>Shelter.in</span></h2>
-          <p class="animate__animated animate__fadeInUp">Website for book property rooms and accommodation , hostels etc.for more you can visit our Website and get more services </p>
-          <a href="" class="btn-get-started animate__animated animate__fadeInUp">Read More</a>
-        </div>
-      </div>
+        <!-- Slide 1 -->
+        <div class="carousel-item active">
+            <div class="carousel-container">
+                <h2 class="animate__animated animate__fadeInDown">Welcome to <span>Shelter.in</span></h2>
+                <p class="animate__animated animate__fadeInUp">Website for book property rooms and accommodation ,
+                    hostels etc.for more you can visit our Website and get more services </p>
 
-      <!-- Slide 2 -->
-      <div class="carousel-item">
-        <div class="carousel-container">
-          <h2 class="animate__animated animate__fadeInDown">Lorem Ipsum Dolor</h2>
-          <p class="animate__animated animate__fadeInUp">Ut velit est quam dolor ad a aliquid qui aliquid. Sequi ea ut et est quaerat sequi nihil ut aliquam. Occaecati alias dolorem mollitia ut. Similique ea voluptatem. Esse doloremque accusamus repellendus deleniti vel. Minus et tempore modi architecto.</p>
-          <a href="" class="btn-get-started animate__animated animate__fadeInUp">Read More</a>
-        </div>
-      </div>
-
-      <!-- Slide 3 -->
-      <div class="carousel-item">
-        <div class="carousel-container">
-          <h2 class="animate__animated animate__fadeInDown">Sequi ea ut et est quaerat</h2>
-          <p class="animate__animated animate__fadeInUp">Ut velit est quam dolor ad a aliquid qui aliquid. Sequi ea ut et est quaerat sequi nihil ut aliquam. Occaecati alias dolorem mollitia ut. Similique ea voluptatem. Esse doloremque accusamus repellendus deleniti vel. Minus et tempore modi architecto.</p>
-          <a href="" class="btn-get-started animate__animated animate__fadeInUp">Read More</a>
-        </div>
-      </div>
-
-      <a class="carousel-control-prev" href="#heroCarousel" role="button" data-slide="prev">
-        <span class="carousel-control-prev-icon bx bx-chevron-left" aria-hidden="true"></span>
-        <span class="sr-only">Previous</span>
-      </a>
-
-      <a class="carousel-control-next" href="#heroCarousel" role="button" data-slide="next">
-        <span class="carousel-control-next-icon bx bx-chevron-right" aria-hidden="true"></span>
-        <span class="sr-only">Next</span>
-      </a>
-
-    </div>
-  </section><!-- End Hero -->
-
-
-
-        {% comment %} top crouseal {% endcomment %}
-
-<section>
-<div id="multi-item-example" class="carousel slide carousel-multi-item" data-ride="carousel" style="margin-top:8%;background:lightgray;height:80%;">
-      <h2>Near by location</h2> 
-      <!--Controls-->
-      {% for pro, range, nSlides in props1 %}
-      <div class="controls-top">
-        <a class="btn-floating" href="#multi-item-example" data-slide="prev"><i class="fa fa-chevron-left"></i></i></a>
-        <a class="btn-floating" href="#multi-item-example" data-slide="next"><i class="fa fa-chevron-right"></i></a>
-      </div>
-      <!--/.Controls-->
-
-      <!--Indicators-->
-      
-      <ol class="carousel-indicators">
-      {% for inde in range %}
-        {% if forloop.first %}
-        <li data-target="#multi-item-example" data-slide-to="{{forloop.counter0}}" class="active"></li>
-        {% else %}
-        {% comment %} <li data-target="#multi-item-example" data-slide-to="{{inde}}" class="active"></li> {% endcomment %}
-        <li data-target="#multi-item-example" data-slide-to="{{forloop.counter0}}"></li>
-        {% endif %} 
-      {% endfor %}
-      </ol>
-      
-      
-      <!--/.Indicators-->
-
-  <!--Slides-->
-  <div class="carousel-inner" role="listbox">
-    <!--First slide-->
-    {% for pr in pro %}
-      {% if forloop.first %}
-    <div class="carousel-item active">
-      {% else %}
-        <div class="carousel-item  ">
-      {% endif %}
-      {% comment %} <div class="col-md-3" style="float:left">
-       <div class="card mb-2">
-          <img class="card-img-top" src="{{pro.0.photo.url}}" alt="Card image cap" width="400" height="200">
-          <div class="card-body">
-                <div class="rating">
-                    <span class="fa fa-star checked"></span>
-                    <span class="fa fa-star checked"></span>
-                    <span class="fa fa-star checked"></span>
-                    <span class="fa fa-star"></span>
-                    <span class="fa fa-star"></span>
-                    <span>(4.4)&nbsp<i onclick="myFunction(this)" class="fa fa-thumbs-up"></i></span>
-                </div>
-              <h4 class="card-title">{{pro.0.p_name}}</h4>
-              <a class="btn btn-primary" style="background:lightblue;border:none">Details</a>
+                <a href="" class="btn-get-started animate__animated animate__fadeInUp">Read More</a>
             </div>
         </div>
-      </div> {% endcomment %}
 
-      
-        <div class="col-md-3" style="float:left">
-          <div class="card mb-2">
-              <img class="card-img-top" src="{{pr.photo.url}}" alt="Card image cap" width="400" height="200">
-              <div class="card-body">
-                    <div class="rating">
-                        <span class="fa fa-star checked"></span>
-                        <span class="fa fa-star checked"></span>
-                        <span class="fa fa-star checked"></span>
-                        <span class="fa fa-star"></span>
-                        <span class="fa fa-star"></span>
-                        <span>(4.4)&nbsp<i onclick="myFunction(this)" class="fa fa-thumbs-up"></i></span>
-                    </div>
-                  <h4 class="card-title">{{pr.p_name}}</h4>
-                  <a class="btn btn-primary" style="background:lightblue;border:none">Details</a>
-                </div>
-            </div>
-        </div>
-        {% comment %} {% if forloop.counter|divisibleby:3 and forloop.counter > 0 and not forloop.last %}
-        </div><div class="crousel-item">
-        {% endif %} {% endcomment %}
+<!--        &lt;!&ndash; Slide 2 &ndash;&gt;-->
+<!--        <div class="carousel-item">-->
+<!--            <div class="carousel-container">-->
+<!--                <h2 class="animate__animated animate__fadeInDown">Lorem Ipsum Dolor</h2>-->
+<!--                <p class="animate__animated animate__fadeInUp">Ut velit est quam dolor ad a aliquid qui aliquid. Sequi-->
+<!--                    ea ut et est quaerat sequi nihil ut aliquam. Occaecati alias dolorem mollitia ut. Similique ea-->
+<!--                    voluptatem. Esse doloremque accusamus repellendus deleniti vel. Minus et tempore modi-->
+<!--                    architecto.</p>-->
+<!--                <a href="" class="btn-get-started animate__animated animate__fadeInUp">Read More</a>-->
+<!--            </div>-->
+<!--        </div>-->
 
-        
-        </div>
+<!--        &lt;!&ndash; Slide 3 &ndash;&gt;-->
+<!--        <div class="carousel-item">-->
+<!--            <div class="carousel-container">-->
+<!--                <h2 class="animate__animated animate__fadeInDown">Sequi ea ut et est quaerat</h2>-->
+<!--                <p class="animate__animated animate__fadeInUp">Ut velit est quam dolor ad a aliquid qui aliquid. Sequi-->
+<!--                    ea ut et est quaerat sequi nihil ut aliquam. Occaecati alias dolorem mollitia ut. Similique ea-->
+<!--                    voluptatem. Esse doloremque accusamus repellendus deleniti vel. Minus et tempore modi-->
+<!--                    architecto.</p>-->
+<!--                <a href="" class="btn-get-started animate__animated animate__fadeInUp">Read More</a>-->
+<!--            </div>-->
+<!--        </div>-->
+
+<!--        <a class="carousel-control-prev" href="#heroCarousel" role="button" data-slide="prev">-->
+<!--            <span class="carousel-control-prev-icon bx bx-chevron-left" aria-hidden="true"></span>-->
+<!--            <span class="sr-only">Previous</span>-->
+<!--        </a>-->
+
+<!--        <a class="carousel-control-next" href="#heroCarousel" role="button" data-slide="next">-->
+<!--            <span class="carousel-control-next-icon bx bx-chevron-right" aria-hidden="true"></span>-->
+<!--            <span class="sr-only">Next</span>-->
+<!--        </a>-->
+
+
     </div>
-    {% endfor %}
-    
-    <!--/.First slide-->
-   
-
-  </div>
-  <!--/.Slides-->
-{% endfor %}
-</div>
 </section>
+<!-- End Hero--------------------------------------------------------------------------------------------------- -->
 
 
 
 
+<div class="container text-center my-3">
+    <h2 class="font-weight">Browse by property type
+</h2>
+    <div class="row mx-auto my-auto">
+        <div id="recipeCarousel" class="carousel slide w-100" data-ride="carousel">
+            <div class="carousel-inner w-100" role="listbox">
+                <div class="carousel-item active">
+                    <div class="col-md-4">
+                        <div class="card card-body">
+  <a href="http://127.0.0.1:8000/plistpage/Farm House" id="b">
+                            <img class="card-img-top mx-auto d-block" alt="100%x280"
+                                 src="{% static 'images/nimg/8.jpg' %}" width="400"
+                                 height="200">
+                          Farm House</a>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <div class="col-md-4">
+                        <div class="card card-body">
+  <a href="http://127.0.0.1:8000/plistpage/Villas" id="b">
+                            <img class="card-img-top mx-auto d-block" alt="100%x280"
+                                 src="{% static 'images/nimg/1.jpg' %}"
+                                 width="400" height="200">
+                         Villa</a>
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="carousel-item">
+                    <div class="col-md-4">
+                        <div class="card card-body">
+<a href="http://127.0.0.1:8000/plistpage/Hotels" id="b">
+                            <img class="card-img-top mx-auto d-block" alt="100%x280"
+                                 src="{% static 'images/nimg/2.jpg' %}"
+                                 width="400" height="200">
+                          Hotel</a>
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="carousel-item">
+                    <div class="col-md-4">
+                        <div class="card card-body">
+     <a href="http://127.0.0.1:8000/plistpage/PG" id="b">
+                            <img class="card-img-top mx-auto d-block" alt="100%x280"
+                                 src="{% static 'images/nimg/3.jpg' %}" width="400"
+                                 height="200">
+                       PG</a>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <div class="col-md-4">
+                        <div class="card card-body">
+   <a href="http://127.0.0.1:8000/plistpage/Guest House" id="b">
+                            <img class="card-img-top mx-auto d-block" alt="100%x280"
+                                 src="{% static 'images/nimg/7.jpg' %}" width="400"
+                                 height="200">
+                         Guest Houses</a>
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="carousel-item">
+                    <div class="col-md-4">
+                        <div class="card card-body">
+   <a href="http://127.0.0.1:8000/plistpage/Apartment" id="b">
+                            <img class="card-img-top mx-auto d-block" src="{% static 'images/nimg/15.jpg' %}"
+                                 width="400" height="200">
+                         Apartments</a>
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="carousel-item">
+                    <div class="col-md-4">
+                        <div class="card card-body">
+
+   <a href="http://127.0.0.1:8000/plistpage/Resort" id="b">
+                            <img class="card-img-top mx-auto d-block" src="{% static 'images/nimg/5.jpg' %}" width="400"
+                                 height="200">
+                         RESORTS</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="carousel-item">
+                    <div class="col-md-4">
+                        <div class="card card-body">
+    <a href="http://127.0.0.1:8000/plistpage/Hostels" id="b">
+                            <img class="card-img-top mx-auto d-block" src="{% static 'images/nimg/4.jpg' %}" width="400"
+                                 height="200">
+                        HOSTEL</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="carousel-item">
+                    <div class="col-md-4">
+                        <div class="card card-body">
+
+ <a href="http://127.0.0.1:8000/plistpage/Apartment" id="b">
+                            <img class="card-img-top mx-auto d-block" alt="100%x280"
+                                 src="{% static 'images/nimg/6.jpg' %}" width="400"
+                                 height="200">
+                           APARTMENTS</a>
+                        </div>
+                    </div>
+                </div>
+            <a class="carousel-control-prev w-auto" href="#recipeCarousel" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon bg-dark border border-dark rounded-circle"
+                      aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next w-auto" href="#recipeCarousel" role="button" data-slide="next">
+                <span class="carousel-control-next-icon bg-dark border border-dark rounded-circle"
+                      aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+            </a>
+        </div>
+    </div>
+</div>
+
+<!--<div id="city" class="city">-->
+<!--    <div class="card-columns">-->
+<!--        <div class="card">-->
+<!--            <img class="card-img-top" id="if" src="{% static 'images/nimg/ahmedabad.jpg' %}" alt="Card image cap">-->
+<!--            <h5 class="card-title">Ahemdabad</h5>-->
+
+<!--        </div>-->
+
+<!--        <div class="card">-->
+<!--            <img class="card-img-top" id="if" src="{% static 'images/nimg/Gandhinagar.jpg' %}" alt="Card image cap">-->
+<!--            <h5 class="card-title">Gandhinagar</h5>-->
+
+<!--        </div>-->
 
 
+<!--        <div class="card">-->
+<!--            <img class="card-img" src="{% static 'images/nimg/Rajkot.jpg' %}" alt="Card image">-->
+<!--            <h5 class="card-title" id="i">Rajkot</h5>-->
+<!--        </div>-->
+<!--        <div class="card">-->
+<!--            <img class="card-img" src="{% static 'images/nimg/Vadodara.jpg' %}" alt="Card image">-->
+<!--            <h5 class="card-title" id="i">Vadodara</h5>-->
+<!--        </div>-->
+<!--        <div class="card">-->
+<!--            <img class="card-img" src="{% static 'images/nimg/surat.jpg' %}" alt="Card image">-->
+<!--            <h5 class="card-title" id="i">Surat</h5>-->
+<!--        </div>-->
 
+<!--    </div>-->
 
+<!--</div>-->
 
-    <section class="pt-5 pb-5" style="background:gray;">
-      <div class="container">
-        <h3 class="mb-3" style="color:black;text-align:left;">Near by city</h3>
+<div id="city">
+    <div class="container">
         <div class="row">
-            <div class="col-6 text-right">
-                <a class="btn btn-primary mb-3 mr-1" href="#carouselExampleIndicators2" role="button" data-slide="prev">
-                    <i class="fa fa-arrow-left"></i>
-                </a>
-                <a class="btn btn-primary mb-3 " href="#carouselExampleIndicators2" role="button" data-slide="next">
-                    <i class="fa fa-arrow-right"></i>
-                </a>
-              </div>
-              <div class="col-12">
-                  <div id="carouselExampleIndicators2" class="carousel slide" data-ride="" style="width:100%">
-                      <div class="carousel-inner">
-                          <div class="carousel-item active">
-                            <div class="row">
-                                <div class="col-md-4 mb-3">
-                                    <div class="card"> 
-                                        <img class="card-img-top" src="{{pro.photo.url}}" width="400" height="200">
-                                        <div class="card-body">
-                                          <div class="rating">
-                                            <span class="fa fa-star checked"></span>
-                                            <span class="fa fa-star checked"></span>
-                                            <span class="fa fa-star checked"></span>
-                                            <span class="fa fa-star"></span>
-                                            <span class="fa fa-star"></span>
-                                            <span>(4.4)&nbsp<i onclick="myFunction(this)" class="fa fa-thumbs-up"></i></span>
-                                          </div>
-                                        </div>
-                                        <div class="top-text">
-                                          <div class="name">{{pro.p_name}} - {{pro.p_city}}</div>
-                                          <p>{{pro.p_rooms_available}}&nbsp;BHK</p>
-                                          <label>Price :&nbsp<b>&#x20B9;{{pro.p_price}}</b></label>
-                                        </div>
-                                        <div class="bottom-text">
-                                            <p><a href="#">See The Location on Map</a><p>
-                                              <div class="table">
-                                                  <tr class="row">
-                                                    <td class="col-sm">
-                                                      Floor
-                                                      <p>{{pro.p_floor_no}}</p>
-                                                    </td>
-                                                    <td class="col-sm">
-                                                      Sharing Member
-                                                      <p>{{pro.p_sharing_member}}</p>
-                                                    </td>
-                                                    <td class="col-sm">
-                                                      Tenants
-                                                      <p>{{pro.tenants_preffered}}</p>
-                                                    </td>
-                                                  </tr>
-                                              </div>
-                                              <button type="button" class="btn btn-secondary btn-sm">More Details</button>
-                                        </div>
-                                    </div>        
-                                </div>
-                              </div>
-                          </div>    
-                    </div> 
-                  </div>
+            <div class="col-sm-6" style="">
+                <a href="plistpagecity/Ahemdabad">
+                <div class="card">
+                    <img class="" id="if" src="{% static 'images/nimg/ahmedabad.jpg' %}" alt="Card image cap">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5 id="i">Ahemdabad</h5>
+                    </div>
                 </div>
+                </a>
+            </div>
+            <div class="col-sm-6" style="">
+                <a href="plistpagecity/Gandhinagar">
+                <div class="card">
+
+                    <img class="card-img-top" id="if" src="{% static 'images/nimg/Gandhinagar.jpg' %}"
+                         alt="Card image cap">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5 id="i">Gandhinagar</h5>
+                    </div>
+                </div>
+                </a>
             </div>
         </div>
     </div>
-    </section>
 
+    <br>
 
+    <div class="container">
 
-
-
-
-
-
-
-
-
-
-    <section class="pt-5 pb-5">
-        <div class="container">
-            {% comment %} <div class="col-6"> {% endcomment %}
-                    <h4 class="mb-3" style="text-align:left;">Browse by property type</h4>
-            {% comment %} </div> {% endcomment %}
-            <div class="row">
-                  <div class="col-6 text-right">
-                    <a class="btn btn-primary mb-3 mr-1" href="#carouselExampleIndicators5" role="button" data-slide="prev">
-                        <i class="fa fa-arrow-left"></i>
-                    </a>
-                    <a class="btn btn-primary mb-3 " href="#carouselExampleIndicators5" role="button" data-slide="next">
-                        <i class="fa fa-arrow-right"></i>
-                    </a>
-                  </div>
-                
-
-                <div class="col-12">
-                    <div id="carouselExampleIndicators5" class="carousel slide" data-ride="crousel">
-
-
-                        <div class="carousel-item active">
-                            <div class="row">
-
-                                <div class="col-md-4 mb-3">
-                                    <div class="card">
-                                        <img class="img-fluid" alt="100%x280" src="{% static 'images/nimg/1.jpg' %}" width="400" height="200">
-                                        <a href="" id="a">Villas</a>
-                                    </div>
-                                </div>
-                                 <div class="col-md-4 mb-3">
-                                    <div class="card">
-                                        <img class="img-fluid" alt="100%x280" src="{% static 'images/nimg/2.jpg' %}" width="400" height="200">
-                                        <a href="" id="a">Hotel</a>
-                                    </div>
-                                </div>
-                                 <div class="col-md-4 mb-3">
-                                    <div class="card">
-                                        <img class="img-fluid" alt="100%x280" src="{% static 'images/nimg/3.jpg' %}" width="400" height="200">
-                                        <a href="" id="a">PG</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="carousel-item">
-                            <div class="row">
-
-                                <div class="col-md-4 mb-3">
-                                    <div class="card">
-                                        <img class="img-fluid" src="{% static 'images/nimg/4.jpg' %}" width="400" height="200">
-                                        <a href="" id="a">HOSTEL</a>
-                                    </div>
-                                </div>
-                                <div class="col-md-4 mb-3">
-                                    <div class="card">
-                                        <img class="img-fluid" src="{% static 'images/nimg/5.jpg' %}" width="400" height="200">
-                                        <a href="" id="a">RESORTS</a>
-                                    </div>
-                                </div>
-                                <div class="col-md-4 mb-3">
-                                    <div class="card">
-                                        <img class="img-fluid" src="{% static 'images/nimg/15.jpg' %}" width="400" height="200">
-                                        <a href="" id="a">Apartments</a>
-                                    </div>
-                                </div>
-
-                            </div>
-                        </div>
-
-                        <div class="carousel-item">
-                            <div class="row">
-
-                                <div class="col-md-4 mb-3">
-                                    <div class="card">
-                                        <img class="img-fluid" alt="100%x280" src="{% static 'images/nimg/7.jpg' %}" width="400" height="200">
-                                        <a href="" id="a">Guest Houses</a>
-                                    </div>
-                                </div>
-                                 <div class="col-md-4 mb-3">
-                                    <div class="card">
-                                        <img class="img-fluid" alt="100%x280" src="{% static 'images/nimg/8.jpg' %}" width="400" height="200">
-                                        <a href="" id="a">Farm House</a>
-                                    </div>
-                                </div>
-                                </div>
-                            </div>
-                        </div>
-
+        <div class="row">
+            <div class="col-sm-4" style="">
+                 <a href="plistpagecity/Rajkot">
+                <div class="card">
+                    <img class="card-img-top" src="{% static 'images/nimg/Rajkot.jpg' %}" alt="Card image">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5 id="i">Rajkot</h5>
                     </div>
                 </div>
+                 </a>
+            </div>
+            <div class="col-sm-4" style="">
+              <a href="plistpagecity/Vadodara">   <div class="card">
+                    <img class="card-img-top" src="{% static 'images/nimg/Vadodara.jpg' %}" alt="Card image">
+
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5 id="i">Vadodara</h5></div>
+                </div>
+            </div></a>
+            <div class="col-sm-4" style="">
+              <a href="plistpagecity/city=Surat">   <div class="card">
+                 <img class="card-img-top " src="{% static 'images/nimg/surat.jpg' %}" alt="Card image">
+
+                    <div class="carousel-caption d-none d-md-block">
+                         <h5 id="i">Surat</h5>
+                    </div>
+                </div></a>
             </div>
         </div>
-        </div>
-
-</section>
-
-<div id="city" class="city">
-<div class="card-columns">
-  <div class="card">
-    <img class="card-img-top" id="if" src="{% static 'images/nimg/ahmedabad.jpg' %}" alt="Card image cap">
-      <h5 class="card-title">Ahemdabad</h5>
-
-  </div>
-
-  <div class="card">
-    <img class="card-img-top" id="if" src="{% static 'images/nimg/Gandhinagar.jpg' %}" alt="Card image cap">
-      <h5 class="card-title">Gandhinagar</h5>
-
-  </div>
-
-
-  <div class="card">
-    <img class="card-img"  src="{% static 'images/nimg/Rajkot.jpg' %}" alt="Card image">
-      <h5 class="card-title" id="i">Rajkot</h5>
-  </div>
- <div class="card">
-    <img class="card-img"  src="{% static 'images/nimg/Vadodara.jpg' %}" alt="Card image">
-      <h5 class="card-title" id="i">Vadodara</h5>
-  </div><div class="card">
-    <img class="card-img"  src="{% static 'images/nimg/surat.jpg' %}" alt="Card image">
-      <h5 class="card-title" id="i">Surat</h5>
-  </div>
-
-</div>
-
-</div>
-
-
-
-
-
-    <main id="main">
+    </div>
+</div></div>
+<main id="main">
 
     <!-- ======= Services Section ======= -->
 
-  <!-- ======= Footer ======= -->
-  <footer id="footer" data-aos="fade-up" data-aos-easing="ease-in-out" data-aos-duration="500">
+<!--    &lt;!&ndash; ======= Footer ======= &ndash;&gt;-->
+<!--    <footer id="footer" data-aos="fade-up" data-aos-easing="ease-in-out" data-aos-duration="500">-->
 
 
-    <div class="footer-top">
-      <div class="container">
-        <div class="row">
+<!--        <div class="footer-top">-->
+<!--            <div class="container">-->
+<!--                <div class="row">-->
 
-          <div class="col-lg-3 col-md-6 footer-links">
-            <h4>Useful Links</h4>
-            <ul>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Home</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">About us</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Services</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Terms of service</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Privacy policy</a></li>
-            </ul>
-          </div>
+<!--                    <div class="col-lg-3 col-md-6 footer-links">-->
+<!--                        <h4>Useful Links</h4>-->
+<!--                        <ul>-->
+<!--                            <li><i class="bx bx-chevron-right"></i> <a href="#">Home</a></li>-->
+<!--                            <li><i class="bx bx-chevron-right"></i> <a href="#">About us</a></li>-->
+<!--                            <li><i class="bx bx-chevron-right"></i> <a href="#">Services</a></li>-->
+<!--                            <li><i class="bx bx-chevron-right"></i> <a href="#">Terms of service</a></li>-->
+<!--                            <li><i class="bx bx-chevron-right"></i> <a href="#">Privacy policy</a></li>-->
+<!--                        </ul>-->
+<!--                    </div>-->
 
 
-          <div class="col-lg-3 col-md-6 footer-contact">
-            <h4>Contact Us</h4>
-            <p>
-              Sltiet <br>
-              Rajkot<br>
-              India <br><br>
-              <strong>Phone:</strong> +918320392397<br>
-              <strong>Email:</strong> pzeel969@gmail.com.com<br>
-            </p>
+<!--                    <div class="col-lg-3 col-md-6 footer-contact">-->
+<!--                        <h4>Contact Us</h4>-->
+<!--                        <p>-->
+<!--                            Sltiet <br>-->
+<!--                            Rajkot<br>-->
+<!--                            India <br><br>-->
+<!--                            <strong>Phone:</strong> +918320392397<br>-->
+<!--                            <strong>Email:</strong> pzeel969@gmail.com.com<br>-->
+<!--                        </p>-->
 
-          </div>
+<!--                    </div>-->
 
-          <div class="col-lg-3 col-md-6 footer-info">
-            <h3>About Malic</h3>
-            <p>Our site is made for book villas , hotels , rooms , hostels, pgs ,etc.</p>
-            <div class="social-links mt-3">
-              <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
-              <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
-              <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
-              <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+<!--                    <div class="col-lg-3 col-md-6 footer-info">-->
+<!--                        <h3>About Malic</h3>-->
+<!--                        <p>Our site is made for book villas , hotels , rooms , hostels, pgs ,etc.</p>-->
+<!--                        <div class="social-links mt-3">-->
+<!--                            <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>-->
+<!--                            <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>-->
+<!--                            <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>-->
+<!--                            <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>-->
+<!--                        </div>-->
+<!--                    </div>-->
+
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
+
+<!--        <div class="container">-->
+<!--            <div class="copyright">-->
+<!--                &copy; Copyright <strong><span>Malic</span></strong>. All Rights Reserved-->
+<!--            </div>-->
+<!--            <div class="credits">-->
+<!--                &lt;!&ndash; All the links in the footer should remain intact. &ndash;&gt;-->
+<!--                &lt;!&ndash; You can delete the links only if you purchased the pro version. &ndash;&gt;-->
+<!--                &lt;!&ndash; Licensing information: https://bootstrapmade.com/license/ &ndash;&gt;-->
+<!--                &lt;!&ndash; Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/free-bootstrap-template-corporate-moderna/ &ndash;&gt;-->
+<!--                Designed by <a href="#">SLTIET</a>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </footer>&lt;!&ndash; End Footer &ndash;&gt;-->
+<!-- Footer -->
+    <footer class="bg-dark text-center text-lg-start">
+        <!-- Grid container -->
+        <div class="container p-4">
+            <!--Grid row-->
+            <div class="row">
+                <!--Grid column-->
+                <div class="col-lg-6 col-md-12 mb-4 mb-md-0">
+                    <h5 class="text-uppercase">About Shelter.in</h5>
+
+                    <p>
+                       Shelter.in is part of Booking Holdings Inc., the world leader in online travel and related services.
+                    </p>
+                </div>
+                <!--Grid column-->
+
+                <!--Grid column-->
+                <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+                    <h5 class="text-uppercase">Useful Links
+</h5>
+
+                    <ul class="list-unstyled mb-0">
+                        <li>
+
+
+
+                            <a href="#!" class="text-light">Home</a>
+                        </li>
+                        <li>
+                            <a href="#!" class="text-light">About us
+</a>
+                        </li>
+                        <li>
+                            <a href="#!" class="text-light">Services</a>
+                        </li>
+                        <li>
+                            <a href="#!" class="text-light">Terms of service</a>
+                        </li>
+                        <li>
+                            <a href="#!" class="text-light">Privacy policy</a>
+                        </li>
+                    </ul>
+                </div>
+                <!--Grid column-->
+
+                <!--Grid column-->
+                <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+                    <h5 class="text-uppercase mb-0"> Contact Us</h5>
+<br>
+                    <ul class="list-unstyled">
+                        <li>
+
+            Sltiet Rajkot India
+<br>
+          Phone: +918320392397
+  <br>          Email: Shelter@gmail.com
+                        </li>
+                    </ul>
+                </div>
+                <!--Grid column-->
             </div>
-          </div>
-
+            <!--Grid row-->
         </div>
-      </div>
-    </div>
+        <!-- Grid container -->
 
-    <div class="container">
-      <div class="copyright">
-        &copy; Copyright <strong><span>Malic</span></strong>. All Rights Reserved
-      </div>
-      <div class="credits">
-        <!-- All the links in the footer should remain intact. -->
-        <!-- You can delete the links only if you purchased the pro version. -->
-        <!-- Licensing information: https://bootstrapmade.com/license/ -->
-        <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/free-bootstrap-template-corporate-moderna/ -->
-        Designed by <a href="#">SLTIET</a>
-      </div>
-    </div>
-  </footer><!-- End Footer -->
-
-  <a href="#" class="back-to-top"><i class="icofont-simple-up"></i></a>
+        <!-- Copyright -->
+        <div class="text-center p-3" style="background-color: rgba(F, F, F, F);">
+            © 2021 Copyright:
+            <a class="text-light" href="">Shelter.In</a>
+        </div>
+        <!-- Copyright -->
+    </footer>
+    <!-- Footer -->
+    <a href="#" class="back-to-top"><i class="icofont-simple-up"></i></a>
 
 
+    <!-- Vendor JS Files -->
+    <script src="{% static 'assets/vendor/jquery/jquery.min.js' %}"></script>
+    <script src="{% static 'assets/vendor/jquery.easing/jquery.easing.min.js' %}"></script>
+    <script src="{% static 'assets/vendor/php-email-form/validate.js' %}"></script>
+    <script src="{% static 'assets/vendor/venobox/venobox.min.js' %}"></script>
+    <script src="{% static 'assets/vendor/waypoints/jquery.waypoints.min.js' %}"></script>
+    <script src="{% static 'assets/vendor/counterup/counterup.min.js' %}"></script>
+    <script src="{% static 'assets/vendor/owl.carousel/owl.carousel.min.js' %}"></script>
+    <script src="{% static 'assets/vendor/isotope-layout/isotope.pkgd.min.js' %}"></script>
+    <script src="{% static 'assets/vendor/aos/aos.js' %}"></script>
+    
+    <script src="{% static 'js/main.js' %}"></script>
+    <!-- for crousel -->
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js"
+            integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb"
+            crossorigin="anonymous"></script>
+    <!-- for bottstrap affix -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+            integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+            crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+            integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+            crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+            integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+            crossorigin="anonymous"></script>
 
+    <script>
+    $('#recipeCarousel').carousel({
+  interval: 10000
+    })
 
+$('.carousel .carousel-item').each(function(){
+    var minPerSlide = 3;
+    var next = $(this).next();
+    if (!next.length) {
+    next = $(this).siblings(':first');
+    }
+    next.children(':first-child').clone().appendTo($(this));
 
+    for (var i=0;i<minPerSlide;i++) {
+        next=next.next();
+        if (!next.length) {
+        	next = $(this).siblings(':first');
+      	}
 
+        next.children(':first-child').clone().appendTo($(this));
+      }
+});
 
-
-
-  <!-- Vendor JS Files -->
-      <script src="{% static 'assets/vendor/jquery/jquery.min.js' %}"></script>
-      <script src="{% static 'assets/vendor/jquery.easing/jquery.easing.min.js' %}"></script>
-      <script src="{% static 'assets/vendor/php-email-form/validate.js' %}"></script>
-      <script src="{% static 'assets/vendor/venobox/venobox.min.js' %}"></script>
-      <script src="{% static 'assets/vendor/waypoints/jquery.waypoints.min.js' %}"></script>
-      <script src="{% static 'assets/vendor/counterup/counterup.min.js' %}"></script>
-      <script src="{% static 'assets/vendor/owl.carousel/owl.carousel.min.js' %}"></script>
-      <script src="{% static 'assets/vendor/isotope-layout/isotope.pkgd.min.js' %}"></script>
-      <script src="{% static 'assets/vendor/aos/aos.js' %}"></script>
-      {% comment %} <script src="{% static 'js/bootstrap.min.js' %}"></script> {% endcomment %}
-      <script src="{% static 'js/main.js' %}"></script>
-      <!-- for crousel -->
-      {% comment %} <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script> {% endcomment %}
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
-      <!-- for bottstrap affix -->
-      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-      <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script> -->
-      <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-      <script>
-        if ($(window).width() > 992) {
-            $(window).scroll(function(){  
-              if ($(this).scrollTop() > 40) {
-                  $('#navbar_top').addClass("fixed-top");
-                  // add padding top to show content behind navbar
-                  $('body').css('padding-top', $('.navbar').outerHeight() + 'px');
-                }else{
-                  $('#navbar_top').removeClass("fixed-top");
-                  // remove padding top from body
-                  $('body').css('padding-top', '0');
-                }   
-            });
-          } // end if
-      </script>
-  </main>
-   </body>
+    </script>
+    <script>
+    document.addEventListener("DOMContentLoaded", function(){
+  window.addEventListener('scroll', function() {
+      if (window.scrollY > 50) {
+        document.getElementById('navbar_top').classList.add('fixed-top');
+        // add padding top to show content behind navbar
+        navbar_height = document.querySelector('.navbar').offsetHeight;
+        document.body.style.paddingTop = navbar_height + 'px';
+      } else {
+        document.getElementById('navbar_top').classList.remove('fixed-top');
+         // remove padding top from body
+        document.body.style.paddingTop = '0';
+      } 
+  });
+}); 
+    </script>
+</main>
+</body>
 
 </html>
